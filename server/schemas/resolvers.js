@@ -44,6 +44,9 @@ const resolvers = {
 
       return { token, user };
     },
+
+    // update User
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -75,6 +78,11 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    // Update Thought 
+
+    // Delete Thought (PRIORITY!)
+
     addReaction: async (parent, { thoughtId, reactionBody }, context) => {
       if (context.user) {
         const updatedThought = await Thought.findOneAndUpdate(
@@ -88,6 +96,11 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    // Update Reaction
+
+    // Delete Reaction
+
     addFriend: async (parent, { friendId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -101,6 +114,9 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     }
+
+    // Remove Friend (Priority #2)
+
   }
 };
 
