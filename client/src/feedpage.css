@@ -1,0 +1,492 @@
+img.header-bg {
+  width: 1512px;
+  height: 60px;
+  flex-grow: 0;
+  margin: 0 0 24px;
+  padding: 12px 72px 0 0;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+img.Petlink_GR {
+  width: 99px;
+  height: 28.8px;
+  flex-grow: 0;
+  margin: 1.2px 45px 17px 163px;
+  object-fit: contain;
+}
+
+img.search {
+  width: 252px;
+  height: 36px;
+  flex-grow: 0;
+  margin: 0 470px 11px 45px;
+  object-fit: contain;
+}
+
+.search {
+  width: 16px;
+  height: 16px;
+  flex-grow: 0;
+}
+
+.Search {
+  width: 50px;
+  height: 19px;
+  flex-grow: 0;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+img.nav {
+  width: 232px;
+  height: 24px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 29px;
+  margin: 6px 179px 17px 470px;
+  padding: 0;
+  object-fit: contain;
+}
+
+.nav-home-active {
+  width: 24px;
+  height: 24px;
+  flex-grow: 0;
+}
+
+.nav-home {
+  width: 22px;
+  height: 22px;
+  background-color: #262626;
+}
+
+.nav-messaging {
+  width: 20px;
+  height: 20px;
+  flex-grow: 0;
+  border: solid 2px #000;
+}
+
+.nav-add-friend {
+  width: 20px;
+  height: 20px;
+  border: solid 2px #000;
+}
+
+.nav-like {
+  width: 23px;
+  height: 20.2px;
+  background-color: #262626;
+}
+
+.nav-avatar {
+  width: 24px;
+  height: 24px;
+  transform: rotate(-180deg);
+}
+
+.Feed {
+  width: 1512px;
+  height: 2185px;
+  flex-grow: 0;
+  padding: 0 0 57.8px;
+  background-color: #f9f9f9;
+}
+
+img.post-bg {
+  width: 596.2px;
+  height: 904.2px;
+  flex-grow: 0;
+  margin: 44.7px 129.2px 23.1px 182.6px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: solid 1px #efefef;
+}
+
+.post-header {
+  width: 596.2px;
+  height: 59.6px;
+  flex-grow: 0;
+  padding: 13.9px 19.9px 13.9px 19.9px;
+  background-color: #7ed9d0;
+}
+
+.post-avatar {
+  width: 31.8px;
+  height: 31.8px;
+  flex-grow: 0;
+  margin: 0 13.7px 0 0;
+}
+
+.post-username {
+  width: 59px;
+  height: 16px;
+  flex-grow: 0;
+  margin: 8.4px 428.1px 7.4px 13.7px;
+  font-family: ProximaNova;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #262626;
+}
+
+.options {
+  width: 23.8px;
+  height: 23.8px;
+  flex-grow: 0;
+  margin: 4px 0 4px 428.1px;
+  padding: 10.4px 4.5px 10.4px 4.5px;
+}
+
+img.post-bg {
+  width: 596.2px;
+  height: 904.2px;
+  flex-grow: 0;
+  margin: 44.7px 129.2px 23.1px 182.6px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: solid 1px #efefef;
+}
+
+.post-picture {
+  width: 596.2px;
+  height: 596.2px;
+  flex-grow: 0;
+  margin: 1px 0 0px;
+  transform: rotate(-180deg);
+}
+
+.post-like {
+  width: 14.5px;
+  height: 14.5px;
+  border: solid 1.5px #000;
+}
+
+.post-comment {
+  width: 19.9px;
+  height: 19.9px;
+  border: solid 2px #000;
+}
+
+.save {
+  width: 23.8px;
+  height: 23.8px;
+  flex-grow: 0;
+  margin: 0 0 0 465px;
+  padding: 3px 4px 3px 4px;
+}
+
+.-likes {
+  width: 68.6px;
+  height: 15.9px;
+  flex-grow: 0;
+  margin: 0 303px 7.9px 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.comment-text {
+  width: 556.4px;
+  height: 35.8px;
+  flex-grow: 0;
+  margin: 7.9px 0 8.9px;
+  padding: 1px 505.8px 18.9px 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.comment-text .text-style-1 {
+  font-weight: 500;
+  line-height: normal;
+}
+
+.more-comments-link {
+  width: 112.3px;
+  height: 15.9px;
+  flex-grow: 0;
+  margin: 8.7px 259.2px 9.9px 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+.comment-bg {
+  width: 596.2px;
+  height: 60.6px;
+  flex-grow: 0;
+  margin: 24.8px 0 0;
+  padding: 13.4px 19.9px 12.8px 16.1px;
+}
+
+.Dog-emoji {
+  width: 23.8px;
+  height: 34.5px;
+  flex-grow: 0;
+  margin: 0 14.8px 0 0;
+  padding: 0 1.1px 0 0;
+}
+
+.Add-comment {
+  width: 110.3px;
+  height: 15.9px;
+  flex-grow: 0;
+  margin: 9.5px 382.6px 9.1px 14.8px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+.Post-comment {
+  width: 28.8px;
+  height: 15.9px;
+  flex-grow: 0;
+  margin: 9.5px 0 9.1px 382.6px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: rgba(0, 149, 246, 0.25);
+}
+
+.ad-banner {
+  width: 596px;
+  height: 155px;
+  margin: 23.1px 129px 36px 183px;
+  padding: 13px 25px 13px 33px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+
+.side-bg {
+  width: 300px;
+  height: 518px;
+  flex-grow: 0;
+  margin: 24px 304px 430px 95px;
+  padding: 30px 0 25px;
+}
+
+.feed-avatar {
+  width: 56px;
+  height: 56px;
+  flex-grow: 0;
+  margin: 0 12px 0 0;
+}
+
+.feed-username {
+  width: 51px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 8px 3px 1px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.feed-user-name {
+  width: 60px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 3px 0 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+.Change {
+  width: 41px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 19px 0 19px 131px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0095f6;
+}
+
+.Suggestions-for-you {
+  width: 125px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 139px 0 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+.See-all-suggestions {
+  width: 36px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 0 0 139px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #262626;
+}
+
+.suggested-user-avatar {
+  width: 32px;
+  height: 32px;
+  flex-grow: 0;
+  margin: 2px 12px 2px 0;
+}
+
+.suggested-user {
+  width: 50px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 51px 0 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.suggested-user-info {
+  width: 101px;
+  height: 36px;
+  flex-grow: 0;
+  margin: 0 119px 0 12px;
+}
+
+.Suggestion-for-you {
+  width: 101px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 18px 0 0;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+.Follow {
+  width: 36px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 9px 0 9px 119px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0095f6;
+}
+
+.side-info-links {
+  width: 300px;
+  height: 54px;
+  flex-grow: 0;
+  margin: 0 0 18px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
+
+.side-copyright {
+  width: 90px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 18px 210px 0 0;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8e8e;
+}
