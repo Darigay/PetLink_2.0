@@ -34,7 +34,7 @@ const ThoughtForm = () => {
 
   // update state based on form input changes
   const handleChange = (event) => {
-    if (event.target.value.length <= 280) {
+    if (event.target.value.length <= 480) {
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
@@ -60,9 +60,10 @@ const ThoughtForm = () => {
   return (
     <div>
       <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+        className={`m-0 ${characterCount === 480 || error ? 'text-error' : ''}`}
       >
-        Character Count: {characterCount}/280
+        Character Count: {characterCount}/480
+        {/* try to make character count font smaller */}
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
@@ -70,7 +71,7 @@ const ThoughtForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Here's a new thought..."
+          placeholder="Post some pet-related content here"
           value={thoughtText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
