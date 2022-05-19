@@ -5,7 +5,7 @@ const ReactionList = ({ reactions }) => {
   return (
     <div className="card mb-3">
       <div className="card-header">
-        <span className="text-light">comments</span>
+        <span className="text-light">Comments</span>
       </div>
       <div className="card-body">
         {reactions &&
