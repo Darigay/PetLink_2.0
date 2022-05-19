@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import axios, { Axios } from 'axios';
 
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
@@ -10,27 +11,27 @@ const ThoughtForm = () => {
 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
-      
-      // could potentially not exist yet, so wrap in a try/catch
-    try {
-      // update me array's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-      });
-    } catch (e) {
-      console.warn("First thought insertion by user!")
-    }
 
-    // update thought array's cache
-    const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
-    cache.writeQuery({
-      query: QUERY_THOUGHTS,
-      data: { thoughts: [addThought, ...thoughts] },
-    });
-  }
-})
+      // could potentially not exist yet, so wrap in a try/catch
+      try {
+        // update me array's cache
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        });
+      } catch (e) {
+        console.warn("First thought insertion by user!")
+      }
+
+      // update thought array's cache
+      const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+      cache.writeQuery({
+        query: QUERY_THOUGHTS,
+        data: { thoughts: [addThought, ...thoughts] },
+      });
+    }
+  })
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -57,6 +58,20 @@ const ThoughtForm = () => {
     }
   };
 
+  // Cloudinary
+  const uploadImage = (files) => {
+    const formData = new FormData()
+    formData.append("file", files[0])
+    formData.append("upload_preset", "yaen0elo")
+
+    Axios.post("https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload",
+      formData
+    ).then((response) => {
+      console.log(response);
+    });
+
+  };
+
   return (
     <div>
       <p
@@ -79,6 +94,12 @@ const ThoughtForm = () => {
         <button className="btn col-12 col-md-3" type="submit">
           Create
         </button>
+        <input
+          type="file"
+          onChange={(event) => {
+            uploadImage(event.target.files);
+          }}
+        />
       </form>
     </div>
   );
