@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_COMMENT } from '../../utils/mutations';
+import { ADD_REACTION } from '../../utils/mutations';
 
-const commentForm = ({ thoughtId }) => {
-  const [commentBody, setBody] = useState('');
-  const [commentCount, setCharacterCount] = useState(0);
-  const [addComment, { error }] = useMutation(ADD_COMMENT);
+const reactionForm = ({ thoughtId }) => {
+  const [reactionBody, setBody] = useState('');
+  const [characterCount, setCharacterCount] = useState(0);
+  const [addReaction, { error }] = useMutation(ADD_REACTION);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -21,8 +21,8 @@ const commentForm = ({ thoughtId }) => {
     event.preventDefault();
 
     try {
-      await addComment({
-        variables: { commentBody, commentId },
+      await addReaction({
+        variables: { reactionBody, reactionId },
       });
 
       // clear form value
@@ -47,7 +47,7 @@ const commentForm = ({ thoughtId }) => {
       >
         <textarea
           placeholder="Leave a reaction to this thought..."
-          value={commentBody}
+          value={reactionBody}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
@@ -62,4 +62,4 @@ const commentForm = ({ thoughtId }) => {
   );
 };
 
-export default commentForm;
+export default reactionForm;
