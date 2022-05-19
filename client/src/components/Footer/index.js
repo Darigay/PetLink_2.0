@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="w-100 mt-auto bg-secondary p-4">
       <div className="container">
-        &copy;{new Date().getFullYear()} by Anastasia, Ashley, Divya Josh and Haley
+        &copy;{new Date().getFullYear()} by Anastasia, Ashley, Divya, Josh, and Haley
       </div>
     </footer>
   );

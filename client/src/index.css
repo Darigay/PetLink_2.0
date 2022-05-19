@@ -117,7 +117,7 @@ nav a:hover {
   border: none;
   color: var(--dark);
   outline: none;
-  background-color: var(--secondary);
+  background-color: var(--tertiary);
   transition: all 0.5s;
 }
 
@@ -146,9 +146,9 @@ nav a:hover {
 }
 
 .card-header {
-  color: var(--secondary);
+  color: var(--dark);
   margin: 0;
-  background-color: var(--dark);
+  background-color: var(--secondary);
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
@@ -175,6 +175,7 @@ nav a:hover {
   padding: 0.75rem;
   margin: 0.2rem 0;
   font-size: 1.2rem;
+  font-family: 'Raleway', sans-serif;
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
 }
