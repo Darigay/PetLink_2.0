@@ -26,10 +26,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Look at these cute pets!"
-            />
+            <ThoughtList thoughts={thoughts} title="Look at these cute pets!" />
           )}
         </div>
         {loggedIn && userData ? (
