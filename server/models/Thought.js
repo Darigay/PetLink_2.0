@@ -19,6 +19,9 @@ const thoughtSchema = new Schema(
       type: String,
       required: true
     },
+    image: {
+      type: String,
+    },
     reactions: [reactionSchema]
   },
   {
@@ -28,7 +31,7 @@ const thoughtSchema = new Schema(
   }
 );
 
-thoughtSchema.virtual('reactionCount').get(function() {
+thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 

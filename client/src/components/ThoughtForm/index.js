@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
-import axios, { Axios } from 'axios';
+// import { Axios } from 'axios';
 
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
@@ -59,22 +59,34 @@ const ThoughtForm = () => {
   };
 
   // Cloudinary
-
-  const [imageSelected, setImageSelected] = useState("");
+  const [file, setFile] = useState("");
+  const [url, setUrl] = useState("");
 
   const uploadImage = () => {
-    const formData = new FormData()
-    formData.append("file", imageSelected)
-    formData.append("upload_preset", "yaen0elo")
+    const data = new FormData()
+    // console.log(imageSelected);
+    data.append("file", file)
+    data.append("upload_preset", "jhvoxhay")
+    data.append("cloud_name", "dqlwnmemx");
+    console.log(data.getAll("file"));
+    console.log(data.get("upload_preset"));
 
-    Axios.post(
+    fetch(
       "https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload",
-      formData
-    ).then((response) => {
-      console.log(response);
-    });
+      {
+        method: 'POST',
+        body: data,
+      }).then((response) => {
+        return response.json(
 
+        )
+      }).then((data) => {
+        setUrl(data.url)
+        console.log(data);
+      })
+      .catch(err => console.log(err))
   };
+
 
   return (
     <div>
@@ -100,9 +112,8 @@ const ThoughtForm = () => {
         </button>
         <input
           type="file"
-          onChange={(event) => {
-            setImageSelected(event.target.files[0]);
-          }}
+          onChange={(event) => setFile(event.target.files[0])
+          }
         />
       </form>
     </div>
@@ -110,3 +121,41 @@ const ThoughtForm = () => {
 };
 
 export default ThoughtForm;
+
+
+// const [imageSelected, setImageSelected] = useState("");
+
+// const uploadImage = () => {
+//   const formData = new FormData()
+//   formData.append("file", imageSelected)
+//   formData.append("upload_preset", "yaen0elo")
+
+//   Axios.post(
+//     "https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload",
+//     formData
+//   ).then((response) => {
+//     console.log(response);
+//   });
+// };
+
+// var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload';
+// var CLOUDINARY_UPLOAD_PRESET = 'yaen0elo';
+
+// const [imageSelected, setImageSelected] = useState("");
+
+// const uploadImage = () => {
+//   const formData = new FormData()
+//   formData.append("file", imageSelected)
+//   formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+//   console.log("files");
+
+//   // sending data to cloudinary
+//   Axios({
+//     url: CLOUDINARY_URL,
+//     method: 'POST',
+//     data: formData
+//   }).then((response) => {
+//     console.log(response);
+//   });
+
+// };
