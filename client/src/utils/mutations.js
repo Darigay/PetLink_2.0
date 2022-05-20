@@ -31,6 +31,7 @@ export const ADD_THOUGHT = gql`
       thoughtText
       createdAt
       username
+      image
       reactionCount
       reactions {
         _id

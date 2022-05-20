@@ -15,6 +15,7 @@ const typeDefs = gql`
     thoughtText: String
     createdAt: String
     username: String
+    image: String
     reactionCount: Int
     reactions: [Reaction]
   }
