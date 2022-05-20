@@ -59,12 +59,16 @@ const ThoughtForm = () => {
   };
 
   // Cloudinary
-  const uploadImage = (files) => {
+
+  const [imageSelected, setImageSelected] = useState("");
+
+  const uploadImage = () => {
     const formData = new FormData()
-    formData.append("file", files[0])
+    formData.append("file", imageSelected)
     formData.append("upload_preset", "yaen0elo")
 
-    Axios.post("https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload",
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload",
       formData
     ).then((response) => {
       console.log(response);
@@ -91,13 +95,13 @@ const ThoughtForm = () => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="btn col-12 col-md-3" type="submit" onClick={uploadImage}>
           Create
         </button>
         <input
           type="file"
           onChange={(event) => {
-            uploadImage(event.target.files);
+            setImageSelected(event.target.files[0]);
           }}
         />
       </form>
