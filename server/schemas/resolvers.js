@@ -173,14 +173,14 @@ const resolvers = {
     },
 
     // Remove Friend (Priority #2)
-    deleteFriend: async (parent, { friendId }, context) => {
+    removeFriend: async (parent, { friendId }, context) => {
       if (context.user) {
         const removeUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { friends: {Id}} },
+          { $pull: { friends: friendId }},
           { new: true }
-        )
-       
+        ).populate('friends');
+        console.log(removeUser);
         return removeUser;
         
       }

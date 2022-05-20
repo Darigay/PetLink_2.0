@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import ThoughtForm from '../components/ThoughtForm';
@@ -7,18 +7,24 @@ import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND } from '../utils/mutations';
+import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
-
+  const [currentUser , setUser] = useState({});
   const [addFriend] = useMutation(ADD_FRIEND);
+  const [removeFriend] = useMutation(REMOVE_FRIEND);
+
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
+  // if(data?.me)
+  // {
+  //   setUser(data?.me)
+  // }
 
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -48,6 +54,24 @@ const Profile = (props) => {
     }
   };
 
+  const handleDeleteFriend = async (Id) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+    const {data} = await  removeFriend({ 
+      variables: { id: user._id }});
+           
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+
   return (
     <div>
       <div className="flex-row mb-3">
@@ -76,7 +100,11 @@ const Profile = (props) => {
             friendCount={user.friendCount}
             friends={user.friends}
           />
+          <button className='btn-block btn-danger' onClick={() => handleDeleteFriend()}>
+                    Delete Friend
+                  </button>
         </div>
+
       </div>
       <div className="mb-3">{!userParam && <ThoughtForm />}</div>
     </div>
