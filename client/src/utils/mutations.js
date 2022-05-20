@@ -68,6 +68,20 @@ export const ADD_FRIEND = gql`
   }
 `;
 
+export const ADD_VOTE = gql`
+  mutation addVote($userId: ID!, $thoughtId: ID!) {
+    addVote(userId: $userId, thoughtId: $thoughtId) {
+      _id
+      voteCount
+      votes {
+        _id
+        user_id
+        thought_id
+      }
+    }
+  }
+`;
+
 export const REMOVE_FRIEND = gql`
   mutation removeFriend($id: ID!) {
     removeFriend(id: $id) {

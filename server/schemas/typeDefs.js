@@ -17,6 +17,7 @@ const typeDefs = gql`
     username: String
     reactionCount: Int
     reactions: [Reaction]
+    voteCount: Int
   }
 
   type Reaction {
@@ -24,6 +25,10 @@ const typeDefs = gql`
     reactionBody: String
     createdAt: String
     username: String
+  }
+
+  type Vote {
+    _id: ID
   }
 
   type Auth {
@@ -45,6 +50,7 @@ const typeDefs = gql`
     addThought(thoughtText: String!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
+    addVote(userId: ID!, thoughtId: ID!): Thought
   }
 `;
 

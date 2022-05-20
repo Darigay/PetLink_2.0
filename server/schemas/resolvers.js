@@ -34,11 +34,10 @@ const resolvers = {
     },
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
-    }
+    },
   },
 
   Mutation: {
-
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
@@ -66,7 +65,10 @@ const resolvers = {
     },
     addThought: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
+        const thought = await Thought.create({
+          ...args,
+          username: context.user.username,
+        });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -80,7 +82,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    // Update Thought 
+    // Update Thought
 
     // Delete Thought (PRIORITY!)
 
@@ -88,7 +90,11 @@ const resolvers = {
       if (context.user) {
         const updatedThought = await Thought.findOneAndUpdate(
           { _id: thoughtId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          {
+            $push: {
+              reactions: { reactionBody, username: context.user.username },
+            },
+          },
           { new: true, runValidators: true }
         );
 
@@ -114,11 +120,30 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    }
+    },
 
     // Remove Friend (Priority #2)
 
-  }
+    addVote: async (parent, { thoughtId }, context) => {
+      if (context.user) {
+        const updatedThought = await Thought.findOneAndUpdate(
+          { _id: thoughtId },
+          {
+            $push: {
+              votes: { user_id: context.user.user_id },
+            },
+          },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThought;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    // Remove Vote
+  },
 };
 
 module.exports = resolvers;
