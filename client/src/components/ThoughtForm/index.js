@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+// import {Image} from 'cloudinary-react';
 // import { Axios } from 'axios';
 
 const ThoughtForm = () => {
@@ -107,6 +108,8 @@ const ThoughtForm = () => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
+        <img src={url}
+        />
         <button className="btn col-12 col-md-3" type="submit" onClick={uploadImage}>
           Create
         </button>
