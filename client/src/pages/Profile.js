@@ -51,8 +51,8 @@ const Profile = (props) => {
   return (
     <div>
       <div className="flex-row justify-center mb-3">
-        <h2 className="bg-secondary text-dark p-3 display-inline-block">
-          {userParam ? `${user.username}'s` : 'Your'} profile
+        <h2 className="text-secondary p-3 display-inline-block">
+          {user.username}
         </h2>
 
         {userParam && (
@@ -67,7 +67,7 @@ const Profile = (props) => {
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
             thoughts={user.thoughts}
-            title={`${user.username}'s pets...`}
+            title={userParam ? `${user.username}'s pets...` : 'Your pets...'}
           />
         </div>
 
