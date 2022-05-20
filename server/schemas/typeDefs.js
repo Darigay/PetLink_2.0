@@ -43,8 +43,13 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
+    updateThought(thoughtId: ID!, thoughtText:String!): Thought
+    deleteThought(thoughtId: ID!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
+    updateReaction(thoughtId: ID!, reactionBody: String!, reactionId: ID!): Thought
+    
     addFriend(friendId: ID!): User
+    deleteFriend(Id: ID!):User
   }
 `;
 
