@@ -25,7 +25,7 @@ const ThoughtList = ({ thoughts, title }) => {
             <div className="card-body">
               <Link to={`/thought/${thought._id}`}>
                 {/* add image */}
-                <p>{thought.image}</p>
+                {/* <p>{thought.image}</p> */}
                 <img src={thought.image} />
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}

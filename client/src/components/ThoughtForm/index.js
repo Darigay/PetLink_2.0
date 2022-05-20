@@ -48,7 +48,7 @@ const ThoughtForm = () => {
 
     try {
       await addThought({
-        variables: { thoughtText },
+        variables: { thoughtText, image },
       });
 
       // clear form value
@@ -108,8 +108,8 @@ const ThoughtForm = () => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-        <img src={url}
-        />
+        {/* <img src={url}
+        /> */}
         <button className="btn col-12 col-md-3" type="submit" onClick={uploadImage}>
           Create
         </button>
