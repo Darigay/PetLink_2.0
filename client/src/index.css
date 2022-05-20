@@ -253,10 +253,12 @@ nav a:hover {
 
 .display-block {
   display: block;
+  border-radius: var(--border-radius);
 }
 
 .display-inline-block {
   display: inline-block;
+  border-radius: var(--border-radius);
 }
 
 .display-inline {
