@@ -8,21 +8,21 @@ const voteSchema = new Schema(
       required: true,
     },
 
-    thought_id: {
-      type: String,
-      required: true,
-    },
+    // voteId: {
+    //   type: ID,
+    //   required: true,
+    // },
 
     createdAt: {
       type: Date,
       default: Date.now,
       get: (timestamp) => dateFormat(timestamp),
-    },
+    }
   },
   {
     toJSON: {
       getters: true,
-    },
+    }
   }
 );
 
