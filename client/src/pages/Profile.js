@@ -9,6 +9,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
+import jwtDecode from 'jwt-decode';
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
@@ -70,6 +71,17 @@ const Profile = (props) => {
     }
   };
 
+  // const isFriend = currentUser.friends.find(userParam);
+// const isFriend = currentUser.friends
+  // const isFriend = (user) => {
+  //   const match = user.friends.some((follower) => {
+  //     return follower.username === user.username
+  //   })
+  //   return match
+  // }
+
+  // const isFriend = Auth.getProfile().data.friends.includes(user.username);
+  
 
 
   return (
@@ -78,10 +90,14 @@ const Profile = (props) => {
         <h2 className="text-secondary p-3 display-inline-block">
           {user.username}
         </h2>
-
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
             Add Friend
+          </button>
+        )}
+        {userParam && (
+          <button className="btn ml-auto" onClick={handleDeleteFriend}>
+            Remove Friend
           </button>
         )}
       </div>
@@ -102,9 +118,9 @@ const Profile = (props) => {
             friendCount={user.friendCount}
             friends={user.friends}
           />
-          <button className='btn-block btn-danger' onClick={() => handleDeleteFriend()}>
+          {/* <button className='btn ml-auto' onClick={() => handleDeleteFriend()}>
                     Delete Friend
-                  </button>
+                  </button> */}
         </div>
 
       </div>
