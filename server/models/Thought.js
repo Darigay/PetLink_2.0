@@ -20,8 +20,9 @@ const thoughtSchema = new Schema(
       type: String,
       required: true
     },
+
     reactions: [reactionSchema],
-    vote: [voteSchema]
+    vote: [voteSchema],
     // reactions: [
     //   {
     //     type: Schema.Types.ObjectId,
@@ -34,7 +35,12 @@ const thoughtSchema = new Schema(
     //     ref: 'Thought'
     //   }
     // ]
-  },
+
+    image: {
+      type: String,
+    },
+
+  
   {
     toJSON: {
       getters: true
@@ -42,7 +48,7 @@ const thoughtSchema = new Schema(
   }
 );
 
-thoughtSchema.virtual('reactionCount').get(function() {
+thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 thoughtSchema.virtual('voteCount').get(function() {
