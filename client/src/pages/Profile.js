@@ -21,7 +21,15 @@ const Profile = (props) => {
     variables: { username: userParam },
   });
 
+  const {loading: loadingMe, data: dataMe} = useQuery(QUERY_ME);
+  console.log(dataMe);
+  const me = dataMe?.me || {};
   const user = data?.me || data?.user || {};
+  console.log(me);
+  console.log(userParam);
+
+  const isFriend = me?.friends?.find(friend => friend["username"] === userParam);
+  console.log(isFriend);
   // if(data?.me)
   // {
   //   setUser(data?.me)
@@ -47,12 +55,13 @@ const Profile = (props) => {
 
   const handleClick = async () => {
     try {
-      await addFriend({
+      const {data} = await addFriend({
         variables: { id: user._id },
       });
     } catch (e) {
       console.error(e);
     }
+    console.log(data)
   };
 
   const handleDeleteFriend = async (Id) => {
@@ -71,16 +80,7 @@ const Profile = (props) => {
     }
   };
 
-  // const isFriend = currentUser.friends.find(userParam);
-// const isFriend = currentUser.friends
-  // const isFriend = (user) => {
-  //   const match = user.friends.some((follower) => {
-  //     return follower.username === user.username
-  //   })
-  //   return match
-  // }
-
-  // const isFriend = Auth.getProfile().data.friends.includes(user.username);
+// const isFriend 
   
 
 
@@ -90,12 +90,12 @@ const Profile = (props) => {
         <h2 className="text-secondary p-3 display-inline-block">
           {user.username}
         </h2>
-        {userParam && (
+        {!isFriend && (
           <button className="btn ml-auto" onClick={handleClick}>
             Add Friend
           </button>
         )}
-        {userParam && (
+        {isFriend && (
           <button className="btn ml-auto" onClick={handleDeleteFriend}>
             Remove Friend
           </button>
