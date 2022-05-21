@@ -130,7 +130,7 @@ const resolvers = {
           { _id: thoughtId },
           {
             $push: {
-              votes: { user_id: context.user.user_id },
+              votes: { thoughtId: context.thought.thoughtId },
             },
           },
           { new: true, runValidators: true }

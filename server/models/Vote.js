@@ -8,7 +8,7 @@ const voteSchema = new Schema(
       required: true,
     },
 
-    post_id: {
+    thought_id: {
       type: String,
       required: true,
     },
