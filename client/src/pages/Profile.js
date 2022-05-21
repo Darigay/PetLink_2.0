@@ -21,6 +21,8 @@ const Profile = (props) => {
     variables: { username: userParam },
   });
 
+
+  // logic to render add/remove friend buttons based on isFriend 
   const {loading: loadingMe, data: dataMe} = useQuery(QUERY_ME);
   console.log(dataMe);
   const me = dataMe?.me || {};
@@ -28,12 +30,10 @@ const Profile = (props) => {
   console.log(me);
   console.log(userParam);
 
+  // isFriend searches the friends array of the logged in user (me) to find the username of the currently displayed profile to determine if they are already friends or not 
   const isFriend = me?.friends?.find(friend => friend["username"] === userParam);
   console.log(isFriend);
-  // if(data?.me)
-  // {
-  //   setUser(data?.me)
-  // }
+
 
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -53,6 +53,7 @@ const Profile = (props) => {
     );
   }
 
+  // this is called when a user clicks the 'add friend' button
   const handleClick = async () => {
     try {
       const {data} = await addFriend({
@@ -64,6 +65,7 @@ const Profile = (props) => {
     console.log(data)
   };
 
+  // this is called when a user clicks the 'remove friend' button
   const handleDeleteFriend = async (Id) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -80,16 +82,22 @@ const Profile = (props) => {
     }
   };
 
-// const isFriend 
-  
-
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="text-secondary p-3 display-inline-block">
+      {!userParam && (
+        <div className="flex-row mb-3 justify-center">
+        <h2 className="text-secondary  display-inline-block p-3">
           {user.username}
         </h2>
+        </div>
+      )}
+      {userParam && (
+      <div className="flex-row mb-3 justify-space-between">
+        <h2 className="text-secondary  display-inline-block justify-flex-start">
+          {user.username}
+        </h2>
+        <div className='display-inline-block justify-flex-end'>
         {!isFriend && (
           <button className="btn ml-auto" onClick={handleClick}>
             Add Friend
@@ -100,7 +108,10 @@ const Profile = (props) => {
             Remove Friend
           </button>
         )}
+        </div>
       </div>
+      )}
+      {/* renders thoughtForm if the user is on their own profile */}
       <div className="mb-3">{!userParam && <ThoughtForm />}</div>
 
       <div className="flex-row justify-space-between mb-3">
@@ -111,16 +122,14 @@ const Profile = (props) => {
           />
         </div>
 
-        <div className="col-12 col-lg-3 mb-3">
-          {/* <h3 className='text-primary'>Friend List</h3> */}
+        <div className="col-12 col-lg-3 mb-3 side-bg">
+          {/* this title is now part of the FriendList component so that it renders the same on the home page and we don't have to code it twice: <h3 className='text-primary'>Friend List</h3> */}
           <FriendList
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
           />
-          {/* <button className='btn ml-auto' onClick={() => handleDeleteFriend()}>
-                    Delete Friend
-                  </button> */}
+
         </div>
 
       </div>
