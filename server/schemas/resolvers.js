@@ -187,6 +187,20 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
+    addVote: async (parent, { thoughtId}, context) => {
+      if (context.user) {
+        const updatedVote = await Thought.findOneAndUpdate(
+          { _id: thoughtId },
+          { $push: { vote: {user_id: context.user._id} }},
+          { new: true }
+        );
+          
+        return updatedVote;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
   }
 };
 

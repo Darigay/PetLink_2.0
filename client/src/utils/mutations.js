@@ -40,22 +40,25 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const UPDATE_THOUGHT = gql`
-  mutation addThought($thoughtId: ID!) {
-    addThought(thoughtText: $thoughtText) {
+  mutation updateThought($thoughtId: ID!, $thoughttext: String!) {
+    updateThought(thoughtId: $thoughtId, thoughtText: $thoughtText) {
       _id
       thoughtText
       createdAt
       username
-      reactionCount
-      reactions {
-        _id
-      }
     }
   }
 `;
 
-
-
+export const DELETE_THOUGHT = gql`
+  mutation deleteThought($thoughtId: ID!) {
+   deleteThought(thoughtId: $thoughtId){
+      _id
+      username
+     
+    }
+  }
+`;
 
 
 
@@ -97,6 +100,15 @@ export const REMOVE_FRIEND = gql`
         _id
         username
       }
+    }
+  }
+`;
+
+export const ADD_VOTE = gql`
+  mutation addVote($thoughtId: ID!) {
+    addVote(thoughtId: $thoughtId) {
+      _id
+      voteCount
     }
   }
 `;

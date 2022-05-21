@@ -14,6 +14,7 @@ export const QUERY_THOUGHTS = gql`
         username
         reactionBody
       }
+      voteCount
     }
   }
 `;
