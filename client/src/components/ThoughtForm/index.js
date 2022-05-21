@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 // import {Image} from 'cloudinary-react';
 // import { Axios } from 'axios';
+const imageContext = React.createContext
 
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
@@ -45,15 +46,19 @@ const ThoughtForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    if (!url) {
+      return;
+    }
 
     try {
       await addThought({
-        variables: { thoughtText, image },
+        variables: { thoughtText: thoughtText, image: url },
       });
 
       // clear form value
       setText('');
       setCharacterCount(0);
+      setUrl("");
     } catch (e) {
       console.error(e);
     }

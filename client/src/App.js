@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -17,6 +18,7 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,6 +39,11 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+
+// const getImage = ({ image }) => {
+//   const picture = React.useContext(url)
+// }
 
 function App() {
   return (
