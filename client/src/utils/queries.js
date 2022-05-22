@@ -71,6 +71,7 @@ export const QUERY_ME = gql`
         _id
         thoughtText
         createdAt
+        image
         reactionCount
         reactions {
           _id
