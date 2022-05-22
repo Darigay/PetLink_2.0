@@ -12,7 +12,7 @@ const ThoughtList = ({ thoughts, title, username }) => {
     return <h3>No pets yet</h3>;
   }
   console.log(thoughts);
-  
+
   const pawPoints = async (thoughtId) => {
     try {
       const { data } = await addVote({
@@ -41,41 +41,46 @@ const ThoughtList = ({ thoughts, title, username }) => {
       <h3>{title}</h3>
       {thoughts &&
         thoughts
-        .map((thought) => (
-          <div key={thought._id} className="card mb-3">
-            <p className="card-header">
-              <Link
-                to={`/profile/${thought.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
-              >
-                {thought.username}
-              </Link>{' '}
-              posted on {thought.createdAt}
-            </p>
-            <div className="card-body">
-              <Link to={`/thought/${thought._id}`}>
-                <img className="card" src={thought.image} />
-                <p>{thought.thoughtText}</p>
-                {/* add back-end code for paw-points */}
+          .map((thought) => (
+            <div key={thought._id} className="card mb-3">
+              <p className="card-header">
+                <Link
+                  to={`/profile/${thought.username}`}
+                  style={{ fontWeight: 700 }}
+                  className="text-light"
+                >
+                  {thought.username}
+                </Link>{' '}
+              </p>
+              <p className="card-header">
 
+                posted on {thought.createdAt}
+              </p>
+              <div className="card-body">
+                <Link to={`/thought/${thought._id}`}>
+                  {/* add image */}
+                  {/* <p>{thought.image}</p> */}
+                  <img className="card" src={thought.image} />
+                  <p>{thought.thoughtText}</p>
+                  {/* add back-end code for paw-points */}
 
-                <p className="mb-0"> Paw Points: {thought.voteCount} ||
+                  <div className='card-body-text '>
+                    <a className="mb-0"> Paw Points {thought.voteCount} |
+                      Comments: {thought.reactionCount}
+                    </a>
 
-                  Comments: {thought.reactionCount} || Click to{' '}
-                  {thought.reactionCount ? 'see the' : 'start a'}  conversation!
-                </p>
-              </Link>
-              <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
-                Paw-Points
-              </button>
-              {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
-                Delete Thought
-              </button> : ""}
+                  </div>
+                </Link>
+                <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
+                  Paw-Points
+                </button>
+                {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
+                  Delete Thought
+                </button> : ""}
 
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
     </div>
   );
 };

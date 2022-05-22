@@ -6,6 +6,7 @@ export const QUERY_THOUGHTS = gql`
       _id
       thoughtText
       createdAt
+      image
       username
       image
       reactionCount
@@ -54,6 +55,7 @@ export const QUERY_USER = gql`
         _id
         thoughtText
         createdAt
+        image
         reactionCount
       }
     }

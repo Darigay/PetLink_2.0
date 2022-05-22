@@ -97,7 +97,7 @@ const ThoughtForm = () => {
   return (
     <div>
       <p
-        className={`m-0 ${characterCount === 480 || error ? 'text-error' : ''}`}
+        className={`m-0  ${characterCount === 480 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/480
         {/* try to make character count font smaller */}
