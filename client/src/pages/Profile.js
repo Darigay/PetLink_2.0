@@ -121,6 +121,8 @@ const Profile = (props) => {
             thoughts={user.thoughts}
             title={userParam ? `${user.username}'s pets...` : 'Your pets...'}
           />
+           {/* <img className="card" src={thought.image} />
+                <p>{thought.thoughtText}</p> */}
         </div>
 
         <div className="col-12 col-lg-3 mb-3 side-bg">
