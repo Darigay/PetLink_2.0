@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+  mutation addThought($thoughtText: String!, $image: String) {
+    addThought(thoughtText: $thoughtText, image: $image) {
       _id
       thoughtText
       createdAt
@@ -53,12 +53,15 @@ export const UPDATE_THOUGHT = gql`
 
 export const DELETE_THOUGHT = gql`
   mutation deleteThought($thoughtId: ID!) {
-    deleteThought(thoughtId: $thoughtId) {
+   deleteThought(thoughtId: $thoughtId){
       _id
       username
+     
     }
   }
 `;
+
+
 
 export const ADD_REACTION = gql`
   mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
@@ -89,20 +92,6 @@ export const ADD_FRIEND = gql`
   }
 `;
 
-export const ADD_VOTE = gql`
-  mutation addVote($userId: ID!, $thoughtId: ID!) {
-    addVote(userId: $userId, thoughtId: $thoughtId) {
-      _id
-      voteCount
-      votes {
-        _id
-        user_id
-        thought_id
-      }
-    }
-  }
-`;
-
 export const REMOVE_FRIEND = gql`
   mutation removeFriend($id: ID!) {
     removeFriend(friendId: $id) {
@@ -116,7 +105,7 @@ export const REMOVE_FRIEND = gql`
   }
 `;
 
-export const REMOVE_VOTE = gql`
+export const ADD_VOTE = gql`
   mutation addVote($thoughtId: ID!) {
     addVote(thoughtId: $thoughtId) {
       _id

@@ -34,10 +34,11 @@ const resolvers = {
     },
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
-    },
+    }
   },
 
   Mutation: {
+
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
@@ -91,6 +92,7 @@ const resolvers = {
    
       throw new AuthenticationError('You need to be logged in!');
     },
+ 
 
     // Delete Thought (PRIORITY!)
     deleteThought: async (parent, args, context) => {
@@ -199,26 +201,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addVote: async (parent, { thoughtId }, context) => {
-      if (context.user) {
-        const updatedThought = await Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          {
-            $push: {
-              votes: { user_id: context.user.user_id },
-            },
-          },
-          { new: true, runValidators: true }
-        );
-
-        return updatedThought;
-      }
-
-      throw new AuthenticationError('You need to be logged in!');
-    },
-
-    // Remove Vote
-  },
+  }
 };
 
 module.exports = resolvers;

@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_VOTE, DELETE_THOUGHT } from '../../utils/mutations';
 
-import pawPointsButton from '../Vote';
-
 const ThoughtList = ({ thoughts, title, username }) => {
   const [addVote] = useMutation(ADD_VOTE);
   const [deleteThought] = useMutation(DELETE_THOUGHT);
   if (!thoughts.length) {
     return <h3>No pets yet</h3>;
   }
+  console.log(thoughts);
+
   const pawPoints = async (thoughtId) => {
     try {
       const { data } = await addVote({
@@ -24,10 +24,16 @@ const ThoughtList = ({ thoughts, title, username }) => {
   };
 
   const delThought = async (thoughtId) => {
+    let { username } = this.username;
+    if (username) {
+      return <button>Delete Thought</button>;
+    }
+
     try {
       const { data } = await deleteThought({
         variables: { thoughtId: thoughtId },
       });
+      console.log(data.deleteThought);
     } catch (e) {
       console.error(e);
     }
@@ -52,8 +58,8 @@ const ThoughtList = ({ thoughts, title, username }) => {
             <div className="card-body">
               <Link to={`/thought/${thought._id}`}>
                 {/* add image */}
-                <p>{thought.image}</p>
-                <img src={thought.image} />
+                {/* <p>{thought.image}</p> */}
+                <img className="card" src={thought.image} alt="" />
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}
 
@@ -70,16 +76,7 @@ const ThoughtList = ({ thoughts, title, username }) => {
               >
                 Paw-Points
               </button>
-              {username === thought.username ? (
-                <button
-                  className="btn-block btn-danger"
-                  onClick={() => delThought(thought._id)}
-                >
-                  Delete Thought
-                </button>
-              ) : (
-                ''
-              )}
+              {username === thought.username ? delThought() : ''}
             </div>
           </div>
         ))}
