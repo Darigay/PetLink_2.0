@@ -1,6 +1,6 @@
 :root {
   --primary: #497573;
-  --secondary: #7ED9D0;
+  --secondary: #7ed9d0;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
   --light: #e1f5f4;
@@ -187,8 +187,8 @@ nav a:hover {
   left: -9999px;
 }
 
-[type='radio']:checked+label,
-[type='radio']:not(:checked)+label {
+[type='radio']:checked + label,
+[type='radio']:not(:checked) + label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -198,8 +198,8 @@ nav a:hover {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked+label:before,
-[type='radio']:not(:checked)+label:before {
+[type='radio']:checked + label:before,
+[type='radio']:not(:checked) + label:before {
   content: '';
   position: absolute;
   left: 0;
@@ -211,8 +211,8 @@ nav a:hover {
   background: #fff;
 }
 
-[type='radio']:checked+label:after,
-[type='radio']:not(:checked)+label:after {
+[type='radio']:checked + label:after,
+[type='radio']:not(:checked) + label:after {
   content: '';
   width: 12px;
   height: 12px;
@@ -225,13 +225,13 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked)+label:after {
+[type='radio']:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked+label:after {
+[type='radio']:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -1258,10 +1258,4 @@ nav a:hover {
   .align-center-xl {
     align-items: center;
   }
-
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> afd6215a508da8579eeeb2a789fc0618cbad3d4a
