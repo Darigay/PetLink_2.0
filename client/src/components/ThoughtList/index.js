@@ -11,6 +11,8 @@ const ThoughtList = ({ thoughts, title, username }) => {
   if (!thoughts.length) {
     return <h3>No pets yet</h3>;
   }
+  console.log(thoughts);
+  
   const pawPoints = async (thoughtId) => {
     try {
       const { data } = await addVote({
@@ -33,6 +35,7 @@ const ThoughtList = ({ thoughts, title, username }) => {
     }
   };
 
+
   return (
     <div>
       <h3>{title}</h3>
@@ -52,8 +55,8 @@ const ThoughtList = ({ thoughts, title, username }) => {
             <div className="card-body">
               <Link to={`/thought/${thought._id}`}>
                 {/* add image */}
-                <p>{thought.image}</p>
-                <img src={thought.image} />
+                {/* <p>{thought.image}</p> */}
+                <img className="card" src={thought.image} />
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}
 
