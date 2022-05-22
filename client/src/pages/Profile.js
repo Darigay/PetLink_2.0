@@ -4,16 +4,17 @@ import { Navigate, useParams } from 'react-router-dom';
 import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
+import charityLogo from "../assets/images/best_friends_utah.png";
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
-import jwtDecode from 'jwt-decode';
+// import jwtDecode from 'jwt-decode';
 
 const Profile = (props) => {
   const { username: userParam } = useParams();
-  const [currentUser , setUser] = useState({});
+  // const [currentUser , setUser] = useState({});
   const [addFriend] = useMutation(ADD_FRIEND);
   const [removeFriend] = useMutation(REMOVE_FRIEND);
 
@@ -24,15 +25,15 @@ const Profile = (props) => {
 
   // logic to render add/remove friend buttons based on isFriend 
   const {loading: loadingMe, data: dataMe} = useQuery(QUERY_ME);
-  console.log(dataMe);
+  // console.log(dataMe);
   const me = dataMe?.me || {};
   const user = data?.me || data?.user || {};
-  console.log(me);
-  console.log(userParam);
+  // console.log(me);
+  // console.log(userParam);
 
   // isFriend searches the friends array of the logged in user (me) to find the username of the currently displayed profile to determine if they are already friends or not 
   const isFriend = me?.friends?.find(friend => friend["username"] === userParam);
-  console.log(isFriend);
+  // console.log(isFriend);
 
 
   // navigate to personal profile page if username is yours
@@ -87,14 +88,14 @@ const Profile = (props) => {
     <div>
       {!userParam && (
         <div className="flex-row mb-3 justify-center">
-        <h2 className="text-secondary  display-inline-block p-3">
+        <h2 className="text-secondary display-inline-block p-3">
           {user.username}
         </h2>
         </div>
       )}
       {userParam && (
       <div className="flex-row mb-3 justify-space-between">
-        <h2 className="text-secondary  display-inline-block justify-flex-start">
+        <h2 className="text-secondary display-inline-block justify-flex-start">
           {user.username}
         </h2>
         <div className='display-inline-block justify-flex-end'>
@@ -131,9 +132,19 @@ const Profile = (props) => {
           />
 
         </div>
+        
 
       </div>
-      
+      <div className="">
+          <div className="">
+            <a
+              href="https://utah.bestfriends.org/get-involved/donate"
+              target="_blank" rel="noreferrer" 
+            >
+              <img src={charityLogo} alt="Best Friends in Utah" />
+            </a>
+          </div>
+        </div>
     </div>
   );
 };

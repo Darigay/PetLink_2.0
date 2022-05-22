@@ -40,11 +40,11 @@ const Home = () => {
             />
           </div>
         ) : null}
-        <div class="row justify-content-end">
+        <div className="row justify-content-end">
           <div className="col-12 col-lg-3 mb-3">
             <a
               href="https://utah.bestfriends.org/get-involved/donate"
-              target="_blank"
+              target="_blank" rel="noreferrer" 
             >
               <img src={charityLogo} alt="Best Friends in Utah" />
             </a>
