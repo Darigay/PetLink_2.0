@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_VOTE, DELETE_THOUGHT } from '../../utils/mutations';
 
+import pawPointsButton from '../Vote';
+
 const ThoughtList = ({ thoughts, title, username }) => {
   const [addVote] = useMutation(ADD_VOTE);
   const [deleteThought] = useMutation(DELETE_THOUGHT);
