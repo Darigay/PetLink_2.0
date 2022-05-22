@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_VOTE, DELETE_THOUGHT } from '../../utils/mutations';
 
-
 const ThoughtList = ({ thoughts, title, username }) => {
   const [addVote] = useMutation(ADD_VOTE);
   const [deleteThought] = useMutation(DELETE_THOUGHT);
@@ -27,7 +26,6 @@ const ThoughtList = ({ thoughts, title, username }) => {
       const { data } = await deleteThought({
         variables: { thoughtId: thoughtId },
       });
-
     } catch (e) {
       console.error(e);
     }
@@ -57,20 +55,29 @@ const ThoughtList = ({ thoughts, title, username }) => {
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}
 
-
-                <p className="mb-0"> Paw Points: {thought.voteCount} ||
-
-                  Comments: {thought.reactionCount} || Click to{' '}
-                  {thought.reactionCount ? 'see the' : 'start a'}  conversation!
+                <p className="mb-0">
+                  {' '}
+                  Paw Points: {thought.voteCount} || Comments:{' '}
+                  {thought.reactionCount} || Click to{' '}
+                  {thought.reactionCount ? 'see the' : 'start a'} conversation!
                 </p>
               </Link>
-              <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
+              <button
+                className="btn-block btn-danger"
+                onClick={() => pawPoints(thought._id)}
+              >
                 Paw-Points
               </button>
-              {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
-                Delete Thought
-              </button> : ""}
-
+              {username === thought.username ? (
+                <button
+                  className="btn-block btn-danger"
+                  onClick={() => delThought(thought._id)}
+                >
+                  Delete Thought
+                </button>
+              ) : (
+                ''
+              )}
             </div>
           </div>
         ))}

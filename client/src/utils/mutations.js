@@ -53,15 +53,12 @@ export const UPDATE_THOUGHT = gql`
 
 export const DELETE_THOUGHT = gql`
   mutation deleteThought($thoughtId: ID!) {
-   deleteThought(thoughtId: $thoughtId){
+    deleteThought(thoughtId: $thoughtId) {
       _id
       username
-     
     }
   }
 `;
-
-
 
 export const ADD_REACTION = gql`
   mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
@@ -119,7 +116,7 @@ export const REMOVE_FRIEND = gql`
   }
 `;
 
-export const ADD_VOTE = gql`
+export const REMOVE_VOTE = gql`
   mutation addVote($thoughtId: ID!) {
     addVote(thoughtId: $thoughtId) {
       _id

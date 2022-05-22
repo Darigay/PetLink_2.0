@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 import thoughtId from '../Vote';
 
 const PawPointsButton = () => {
@@ -13,18 +14,15 @@ const PawPointsButton = () => {
         setClicked(true);
       }}
       onAnimationEnd={() => setClicked(false)}
-      className={
-        ('like-button-wrapper',
-        {
-          liked,
-          clicked,
-        })
-      }
+      className={cn('like-button-wrapper', {
+        liked,
+        clicked,
+      })}
     >
       <div className="like-button bg-secondary text-primary">
         <i class="🐾 bg-tertiary text-error"></i>
         <span>Paw Points</span>
-        <span className={('suffix', { liked })}>Given</span>
+        <span className={cn('suffix', { liked })}>Given</span>
         <Link to={`/thoughts/${thoughtId}`} style={{ fontWeight: 300 }}>
           You gave a Paw Point!
         </Link>
