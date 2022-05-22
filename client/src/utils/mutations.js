@@ -46,6 +46,7 @@ export const UPDATE_THOUGHT = gql`
       _id
       thoughtText
       createdAt
+      image
       username
     }
   }
