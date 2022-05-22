@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -11,6 +12,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+// import Sidebar from './components/Sidebar';
 
 import Home from './pages/Home';
 import Login from './pages/Login';

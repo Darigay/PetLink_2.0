@@ -1,8 +1,9 @@
 import { Layout, Menu } from "antd";
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Auth from '../../utils/auth';
+import React from "react";
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import { useQuery } from "@apollo/client";
+import { QUERY_THOUGHTS, QUERY_ME_BASIC } from "../../utils/queries";
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -13,6 +14,7 @@ import {
   UploadOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
+import FriendList from "../FriendList";
 
 const Sider = Layout;
 const items = [
@@ -30,27 +32,30 @@ const items = [
   label: `nav ${index + 1}`,
 }));
 
-const Sidebar = () => (
-  <Layout hasSider>
-    <Sider
-      style={{
-        overflow: "auto",
-        height: "100vh",
-        position: "fixed",
-        left: 0,
-        top: 0,
-        bottom: 0,
-      }}
-    >
-      <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="inline"
-        defaultSelectedKeys={["4"]}
-        items={items}
-      />
-    </Sider>
-  </Layout>
-);
+const Sidebar = () => {
+  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const loggedIn = Auth.loggedIn();
+  return (
+    <Layout hasSider>
+      <Sider
+        style={{
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          left: 25,
+          top: 110,
+          bottom: 0,
+        }}
+      >
+        <div className="logo" />
+        <FriendList
+          username={userData.me.username}
+          friendCount={userData.me.friendCount}
+          friends={userData.me.friends}
+        />
+      </Sider>
+    </Layout>
+  );
+};
 
 export default Sidebar;

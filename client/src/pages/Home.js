@@ -2,6 +2,8 @@ import React from "react";
 import ThoughtList from "../components/ThoughtList";
 import ThoughtForm from "../components/ThoughtForm";
 import FriendList from "../components/FriendList";
+import { Layout, Menu } from 'antd';
+import Sidebar from '../components/Sidebar';
 
 import charityLogo from "../assets/images/best_friends_utah.png";
 

@@ -88,6 +88,7 @@ const Profile = (props) => {
 
   return (
     <Layout>
+      <Sidebar />
     <div>
       {!userParam && (
         <div className="flex-row mb-3 justify-center">
@@ -149,7 +150,7 @@ const Profile = (props) => {
           </div>
         </div>
     </div>
-    <Sidebar />
+
     </Layout>
   );
 };
