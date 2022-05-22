@@ -6,7 +6,9 @@ const FriendList = ({ friendCount, username, friends }) => {
     return <div>
       <h5>Friend List</h5>
       <p className="bg-secondary text-dark display-block p-3">{username}, connect with other users!</p>
-    </div>
+
+   </div>
+
   }
 
   return (
