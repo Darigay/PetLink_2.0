@@ -26,7 +26,7 @@ const ThoughtList = ({ thoughts, title }) => {
               <Link to={`/thought/${thought._id}`}>
                 {/* add image */}
                 {/* <p>{thought.image}</p> */}
-                <img src={thought.image} />
+                <img className="card" src={thought.image} />
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}
 
