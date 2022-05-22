@@ -8,10 +8,17 @@ const voteSchema = new Schema(
       required: true,
     },
 
+<<<<<<< HEAD
     // voteId: {
     //   type: ID,
     //   required: true,
     // },
+=======
+    post_id: {
+      type: String,
+      required: true,
+    },
+>>>>>>> parent of 5c7901b (minor fixes)
 
     createdAt: {
       type: Date,

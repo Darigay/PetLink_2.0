@@ -205,7 +205,7 @@ const resolvers = {
           { _id: thoughtId },
           {
             $push: {
-              votes: { thoughtId: context.thought.thoughtId },
+              votes: { user_id: context.user.user_id },
             },
           },
           { new: true, runValidators: true }
