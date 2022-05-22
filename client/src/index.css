@@ -150,13 +150,18 @@ nav a:hover {
   color: var(--dark);
   margin: 0;
   background-color: var(--secondary);
-  padding: 0.625rem;
+  padding: 0.235rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
 .card-body {
   padding: 2.5%;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
+}
+
+.card-body-text {
+  padding: 0;
+  font-size: .9rem;
 }
 
 /* FORM */
