@@ -28,7 +28,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList thoughts={thoughts} title="Look at these cute pets!" />
+            <ThoughtList username={userData?.me.username} thoughts={thoughts} title="Look at these cute pets!" />
           )}
         </div>
         {loggedIn && userData ? (

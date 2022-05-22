@@ -143,6 +143,7 @@ nav a:hover {
   border-radius: var(--border-radius);
   background-color: var(--light);
   color: var(--dark);
+  width: 50rem;
 }
 
 .card-header {
@@ -185,8 +186,9 @@ nav a:hover {
   position: absolute;
   left: -9999px;
 }
-[type='radio']:checked + label,
-[type='radio']:not(:checked) + label {
+
+[type='radio']:checked+label,
+[type='radio']:not(:checked)+label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -196,8 +198,8 @@ nav a:hover {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked + label:before,
-[type='radio']:not(:checked) + label:before {
+[type='radio']:checked+label:before,
+[type='radio']:not(:checked)+label:before {
   content: '';
   position: absolute;
   left: 0;
@@ -208,8 +210,9 @@ nav a:hover {
   border-radius: 100%;
   background: #fff;
 }
-[type='radio']:checked + label:after,
-[type='radio']:not(:checked) + label:after {
+
+[type='radio']:checked+label:after,
+[type='radio']:not(:checked)+label:after {
   content: '';
   width: 12px;
   height: 12px;
@@ -222,13 +225,13 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked) + label:after {
+[type='radio']:not(:checked)+label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked + label:after {
+[type='radio']:checked+label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -1255,20 +1258,6 @@ nav a:hover {
   .align-center-xl {
     align-items: center;
   }
-}
-/* .ad-banner {
-  width: 596px;
-  height: 155px;
-  margin: 23.1px 129px 36px 183px;
-  padding: 13px 25px 13px 33px;
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
-  background-color: #fff;
-} */
 
-/* .side-bg {
-  width: 300px;
-  height: 518px;
-  flex-grow: 0;
-  margin: 24px 304px 430px 95px;
-  padding: 30px 0 25px;
-} */
+}
+
