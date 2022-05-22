@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Layout, Menu } from 'antd';
 import { Navigate, useParams } from 'react-router-dom';
 
 import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
 import charityLogo from "../assets/images/best_friends_utah.png";
+import Sidebar from '../components/Sidebar';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -85,6 +87,7 @@ const Profile = (props) => {
 
 
   return (
+    <Layout>
     <div>
       {!userParam && (
         <div className="flex-row mb-3 justify-center">
@@ -146,6 +149,8 @@ const Profile = (props) => {
           </div>
         </div>
     </div>
+    <Sidebar />
+    </Layout>
   );
 };
 

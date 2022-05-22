@@ -40,7 +40,7 @@ const thoughtSchema = new Schema(
       type: String,
     },
 
-  
+  },
   {
     toJSON: {
       getters: true

@@ -43,7 +43,7 @@ const ThoughtList = ({ thoughts, title, username }) => {
         thoughts
         .map((thought) => (
           <div key={thought._id} className="card mb-3">
-            <p className="card-header">
+            <p className="card-header text-light">
               <Link
                 to={`/profile/${thought.username}`}
                 style={{ fontWeight: 700 }}
