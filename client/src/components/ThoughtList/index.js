@@ -7,6 +7,7 @@ import { ADD_VOTE, DELETE_THOUGHT } from '../../utils/mutations';
 const ThoughtList = ({ thoughts, title, username }) => {
   const [addVote] = useMutation(ADD_VOTE);
   const [deleteThought] = useMutation(DELETE_THOUGHT);
+
   if (!thoughts.length) {
     return <h3>No pets yet</h3>;
   }
@@ -43,7 +44,6 @@ const ThoughtList = ({ thoughts, title, username }) => {
     <div>
       <h3>{title}</h3>
       {thoughts &&
-<<<<<<< HEAD
         thoughts.map((thought) => (
           <div key={thought._id} className="card mb-3">
             <p className="card-header">
@@ -54,22 +54,28 @@ const ThoughtList = ({ thoughts, title, username }) => {
               >
                 {thought.username}
               </Link>{' '}
-              posted on {thought.createdAt}
             </p>
+            <p className="card-header">posted on {thought.createdAt}</p>
             <div className="card-body">
               <Link to={`/thought/${thought._id}`}>
                 {/* add image */}
                 {/* <p>{thought.image}</p> */}
-                <img className="card" src={thought.image} alt="" />
+                <img className="card" src={thought.image} />
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}
 
-                <p className="mb-0">
-                  {' '}
-                  Paw Points: {thought.voteCount} || Comments:{' '}
-                  {thought.reactionCount} || Click to{' '}
-                  {thought.reactionCount ? 'see the' : 'start a'} conversation!
-                </p>
+                <div className="card-body-text ">
+                  <a className="mb-0">
+                    {' '}
+                    Paw Points {thought.voteCount} | Comments:{' '}
+                    {thought.reactionCount}
+                  </a>
+                  <p>
+                    Comments: {thought.reactionCount} || Click to{' '}
+                    {thought.reactionCount ? 'see the' : 'start a'}{' '}
+                    conversation!
+                  </p>{' '}
+                </div>
               </Link>
               <button
                 className="btn-block btn-danger"
@@ -77,50 +83,19 @@ const ThoughtList = ({ thoughts, title, username }) => {
               >
                 Paw-Points
               </button>
-              {username === thought.username ? delThought() : ''}
-=======
-        thoughts
-          .map((thought) => (
-            <div key={thought._id} className="card mb-3">
-              <p className="card-header">
-                <Link
-                  to={`/profile/${thought.username}`}
-                  style={{ fontWeight: 700 }}
-                  className="text-light"
+              {username === thought.username ? (
+                <button
+                  className="btn-block btn-danger"
+                  onClick={() => delThought(thought._id)}
                 >
-                  {thought.username}
-                </Link>{' '}
-              </p>
-              <p className="card-header">
-
-                posted on {thought.createdAt}
-              </p>
-              <div className="card-body">
-                <Link to={`/thought/${thought._id}`}>
-                  {/* add image */}
-                  {/* <p>{thought.image}</p> */}
-                  <img className="card" src={thought.image} />
-                  <p>{thought.thoughtText}</p>
-                  {/* add back-end code for paw-points */}
-
-                  <div className='card-body-text '>
-                    <a className="mb-0"> Paw Points {thought.voteCount} |
-                      Comments: {thought.reactionCount}
-                    </a>
-
-                  </div>
-                </Link>
-                <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
-                  Paw-Points
-                </button>
-                {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
                   Delete Thought
-                </button> : ""}
-
-              </div>
->>>>>>> 414474907f171d1b7290ada3fc4fc327e580aadb
+                </button>
+              ) : (
+                ''
+              )}
             </div>
-          ))}
+          </div>
+        ))}
     </div>
   );
 };
