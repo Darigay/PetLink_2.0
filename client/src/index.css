@@ -125,8 +125,9 @@ nav a:hover {
 .btn1 {
   font-size: 1.3rem;
   text-decoration: none;
+  margin: 5px 35px;
+  color: var(--secondary);
   /* padding: 0.5rem 1.2rem;
-  margin: 5px 0; */
   /* border-radius: var(--border-radius);
   border: none;
   color: var(--darker);
