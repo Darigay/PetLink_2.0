@@ -40,7 +40,7 @@ const thoughtSchema = new Schema(
       type: String,
     },
 
-  
+  },
   {
     toJSON: {
       getters: true
@@ -51,7 +51,7 @@ const thoughtSchema = new Schema(
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
-thoughtSchema.virtual('voteCount').get(function() {
+thoughtSchema.virtual('voteCount').get(function () {
   return this.vote.length;
 });
 

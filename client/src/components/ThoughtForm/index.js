@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 // import {Image} from 'cloudinary-react';
 // import { Axios } from 'axios';
+const imageContext = React.createContext
 
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
@@ -45,15 +46,19 @@ const ThoughtForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    if (!url) {
+      return;
+    }
 
     try {
       await addThought({
-        variables: { thoughtText },
+        variables: { thoughtText: thoughtText, image: url },
       });
 
       // clear form value
       setText('');
       setCharacterCount(0);
+      setUrl("");
     } catch (e) {
       console.error(e);
     }
@@ -92,7 +97,7 @@ const ThoughtForm = () => {
   return (
     <div>
       <p
-        className={`m-0 ${characterCount === 480 || error ? 'text-error' : ''}`}
+        className={`m-0  ${characterCount === 480 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/480
         {/* try to make character count font smaller */}
@@ -108,8 +113,8 @@ const ThoughtForm = () => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-        <img src={url}
-        />
+        {/* <img src={url}
+        /> */}
         <button className="btn col-12 col-md-3" type="submit" onClick={uploadImage}>
           Create
         </button>
