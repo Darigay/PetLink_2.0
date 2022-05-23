@@ -63,18 +63,22 @@ const ThoughtList = ({ thoughts, title, username }) => {
                   <img className="card-img" src={thought.image} />
                   <p>{thought.thoughtText}</p>
                   {/* add back-end code for paw-points */}
-
-                  <div className='card-body-text '>
-                    <a className="mb-0"> Paw Points {thought.voteCount} |
-                      Comments {thought.reactionCount}
-                    </a>
-
-                  </div>
                 </Link>
-                <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
+                <div className='card-body-text '>
+                  <a className="mb-0" onClick={() => pawPoints(thought._id)}> Paw Points: {thought.voteCount} | <Link to={`/thought/${thought._id}`}>
+                    <a className="mb-0">
+                      Comments: {thought.reactionCount}
+                    </a>
+                  </Link>
+                  </a>
+                </div>
+
+
+
+                {/* <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
                   Paw-Points
-                </button>
-                {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
+                </button> */}
+                {username === thought.username ? <button className='btn2 btn-danger' onClick={() => delThought(thought._id)}>
                   Delete Thought
                 </button> : ""}
 
