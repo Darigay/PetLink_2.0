@@ -1,4 +1,6 @@
 import React from 'react';
+import './components/fontawesomeIcons';
+
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {

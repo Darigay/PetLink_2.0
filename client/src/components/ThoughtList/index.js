@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {faPaw} from ''
+
 
 import { useMutation } from '@apollo/client';
 import { ADD_VOTE, DELETE_THOUGHT } from '../../utils/mutations';
@@ -72,10 +75,11 @@ const ThoughtList = ({ thoughts, title, username }) => {
                   </div>
                 </Link>
                 <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
-                  Paw-Points
+                 
+                  <FontAwesomeIcon icon={['fas','paw']}></FontAwesomeIcon>
                 </button>
                 {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
-                  Delete Thought
+                  Delete Thought <FontAwesomeIcon icon={['fas','trash']}></FontAwesomeIcon>
                 </button> : ""}
 
 
