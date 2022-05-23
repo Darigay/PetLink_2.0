@@ -24,7 +24,7 @@ const Profile = (props) => {
 
 
   // logic to render add/remove friend buttons based on isFriend 
-  const {loading: loadingMe, data: dataMe} = useQuery(QUERY_ME);
+  const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME);
   // console.log(dataMe);
   const me = dataMe?.me || {};
   const user = data?.me || data?.user || {};
@@ -57,7 +57,7 @@ const Profile = (props) => {
   // this is called when a user clicks the 'add friend' button
   const handleClick = async () => {
     try {
-      const {data} = await addFriend({
+      const { data } = await addFriend({
         variables: { id: user._id },
       });
     } catch (e) {
@@ -75,9 +75,10 @@ const Profile = (props) => {
     }
 
     try {
-    const {data} = await  removeFriend({ 
-      variables: { id: user._id }});
-           
+      const { data } = await removeFriend({
+        variables: { id: user._id }
+      });
+
     } catch (err) {
       console.error(err);
     }
@@ -88,29 +89,29 @@ const Profile = (props) => {
     <div>
       {!userParam && (
         <div className="flex-row mb-3 justify-center">
-        <h2 className="text-secondary display-inline-block p-3">
-          {user.username}
-        </h2>
+          <h2 className="text-secondary display-inline-block p-3">
+            {user.username}
+          </h2>
         </div>
       )}
       {userParam && (
-      <div className="flex-row mb-3 justify-space-between">
-        <h2 className="text-secondary display-inline-block justify-flex-start">
-          {user.username}
-        </h2>
-        <div className='display-inline-block justify-flex-end'>
-        {!isFriend && (
-          <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
-          </button>
-        )}
-        {isFriend && (
-          <button className="btn ml-auto" onClick={handleDeleteFriend}>
-            Remove Friend
-          </button>
-        )}
+        <div className="flex-row mb-3 justify-space-between">
+          <h2 className="text-secondary display-inline-block justify-flex-start">
+            {user.username}
+          </h2>
+          <div className='display-inline-block justify-flex-end'>
+            {!isFriend && (
+              <button className="btn ml-auto" onClick={handleClick}>
+                Add Friend
+              </button>
+            )}
+            {isFriend && (
+              <button className="btn ml-auto" onClick={handleDeleteFriend}>
+                Remove Friend
+              </button>
+            )}
+          </div>
         </div>
-      </div>
       )}
       {/* renders thoughtForm if the user is on their own profile */}
       <div className="mb-3">{!userParam && <ThoughtForm />}</div>
@@ -121,7 +122,7 @@ const Profile = (props) => {
             thoughts={user.thoughts}
             title={userParam ? `${user.username}'s pets...` : 'Your pets...'}
           />
-           {/* <img className="card" src={thought.image} />
+          {/* <img className="card" src={thought.image} />
                 <p>{thought.thoughtText}</p> */}
         </div>
 
@@ -134,19 +135,19 @@ const Profile = (props) => {
           />
 
         </div>
-        
+
 
       </div>
       <div className="">
-          <div className="">
-            <a
-              href="https://utah.bestfriends.org/get-involved/donate"
-              target="_blank" rel="noreferrer" 
-            >
-              <img src={charityLogo} alt="Best Friends in Utah" />
-            </a>
-          </div>
+        <div className="">
+          <a
+            href="https://utah.bestfriends.org/get-involved/donate"
+            target="_blank" rel="noreferrer"
+          >
+            <img src={charityLogo} alt="Best Friends in Utah" />
+          </a>
         </div>
+      </div>
     </div>
   );
 };

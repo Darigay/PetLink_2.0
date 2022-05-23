@@ -45,30 +45,28 @@ const ThoughtList = ({ thoughts, title, username }) => {
         thoughts
           .map((thought) => (
             <div key={thought._id} className="card mb-3">
-              <p className="card-header">
+              <p className="card-header text-light">
                 <Link
                   to={`/profile/${thought.username}`}
                   style={{ fontWeight: 700 }}
                   className="text-light"
                 >
-                  {thought.username}
-                </Link>{' '}
-              </p>
-              <p className="card-header">
-
+                  {thought.username}</Link> <br />
                 posted on {thought.createdAt}
+                {' '}
               </p>
+
               <div className="card-body">
                 <Link to={`/thought/${thought._id}`}>
                   {/* add image */}
                   {/* <p>{thought.image}</p> */}
-                  <img className="card" src={thought.image} />
+                  <img className="card-img" src={thought.image} />
                   <p>{thought.thoughtText}</p>
                   {/* add back-end code for paw-points */}
 
                   <div className='card-body-text '>
                     <a className="mb-0"> Paw Points {thought.voteCount} |
-                      Comments: {thought.reactionCount}
+                      Comments {thought.reactionCount}
                     </a>
 
                     <p>
