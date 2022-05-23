@@ -1,7 +1,7 @@
 :root {
-  --primary: #497573;
-  --secondary: #7ED9D0;
-  --tertiary: #b2c2c1;
+  --primary: #1B263B;
+  --secondary: #1B263B;
+  --tertiary: #778DA9;
   --quatrinary: #cadbda;
   --light: #eeeeee;
   --dark: #6c7575;
@@ -98,7 +98,7 @@ nav a {
 
 nav a:hover {
   color: var(--secondary);
-  background-color: var(--dark);
+  background-color: var(--tertiary);
 }
 
 .page-title {
@@ -137,8 +137,8 @@ nav a:hover {
 
 .btn:hover,
 .pill:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--tertiary);
+  background-color: var(--primary);
 }
 
 .btn:hover a,
@@ -152,12 +152,13 @@ nav a:hover {
 
 /* CARDS */
 .card {
-  margin: 0 10px 20px 30px;
+  margin: 30px 10px 20px 30px;
   /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
   background-color: white;
   color: var(--darker);
   width: 45rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-img {
@@ -173,9 +174,11 @@ nav a:hover {
 .card-header {
   color: var(--darker);
   margin: 0;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
   background-color: var(--secondary);
   padding: 0.235rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  /* border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0; */
 }
 
 .card-body {
