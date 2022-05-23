@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -17,6 +18,7 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,6 +40,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+// const getImage = ({ image }) => {
+//   const picture = React.useContext(url)
+// }
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -46,29 +53,33 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
+              <Route
+                path="/"
+                element={<Home />}
               />
-              <Route 
-                path="/login" 
-                element={<Login />} 
+              <Route
+                path="/login"
+                element={<Login />}
               />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
+              <Route
+                path="/signup"
+                element={<Signup />}
               />
-              <Route 
-                path="/profile" 
-                element={<Profile />} 
+              <Route
+                path="/profile"
+                element={<Profile />}
+              >
+                <Route path=":username"
+                  element={<Profile />}
+                />
+              </Route>
+              <Route
+                path="/thought/:id"
+                element={<SingleThought />}
               />
-              <Route 
-                path="/thought/:id" 
-                element={<SingleThought />} 
-              />
-              <Route 
+              <Route
                 path="*"
-                element={<NoMatch />} 
+                element={<NoMatch />}
               />
             </Routes>
           </div>

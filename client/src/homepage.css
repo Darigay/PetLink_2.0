@@ -1,0 +1,236 @@
+.container {
+  width: 1512px;
+  height: 982px;
+  flex-grow: 0;
+  padding: 0 141px 0 0;
+  background-color: #7ed9d0;
+}
+
+img.dog-1 {
+  width: 874px;
+  height: 982px;
+  margin: 0 48px 0 0;
+  object-fit: contain;
+}
+
+img.Petlink_W {
+  width: 277.1px;
+  height: 89px;
+  margin: 66px 171.9px 827px 48px;
+  object-fit: contain;
+}
+
+.LOGO {
+  width: 324.7px;
+  height: 172.1px;
+  flex-grow: 0;
+  margin: 0 149px 633.1px 147.3px;
+}
+
+.Rectangle-5 {
+  width: 621px;
+  height: 729px;
+  flex-grow: 0;
+  margin: 76.3px 0 0;
+  padding: 69.2px 72.5px 45.8px 72.7px;
+  opacity: 0.9;
+  border-radius: 51px;
+  border: solid 1px #efefef;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.Rectangle-7 {
+  width: 475.5px;
+  height: 69.2px;
+  flex-grow: 0;
+  margin: 0 0.3px 26.6px 0;
+  padding: 21.3px 280.3px 23.1px 23.1px;
+  border-radius: 3px;
+  border: solid 1px #dbdbdb;
+  background-color: #fafafa;
+}
+
+.Username-or-mail {
+  width: 172.1px;
+  height: 24.8px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #959595;
+}
+
+.Rectangle-8 {
+  width: 475.5px;
+  height: 69.2px;
+  flex-grow: 0;
+  margin: 26.6px 0.3px 17.7px 0;
+  padding: 21.3px 356.6px 23.1px 23.1px;
+  border-radius: 3px;
+  border: solid 1px #dbdbdb;
+  background-color: #fafafa;
+}
+
+.Password {
+  width: 95.8px;
+  height: 24.8px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #959595;
+}
+
+.Rectangle-11 {
+  width: 475.5px;
+  height: 53.2px;
+  flex-grow: 0;
+  margin: 17.7px 0.2px 22.8px 0px;
+  padding: 13px 208.3px 13.2px 208.2px;
+  border-radius: 4px;
+  background-color: #5cbab1;
+}
+
+.Log-in {
+  width: 59px;
+  height: 27px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+
+.Dont-have-an-account {
+  width: 382px;
+  height: 25px;
+  flex-grow: 0;
+  margin: 22.8px 47.5px 15.7px 46.3px;
+  font-family: ProximaNova;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #535353;
+}
+
+.Rectangle-7 {
+  width: 475.5px;
+  height: 69.2px;
+  flex-grow: 0;
+  margin: 15.7px 0.3px 18.1px 0;
+  padding: 21.3px 280.3px 23.1px 23.1px;
+  border-radius: 3px;
+  border: solid 1px #dbdbdb;
+  background-color: #fafafa;
+}
+
+.Email {
+  width: 172.1px;
+  height: 24.8px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #959595;
+}
+
+.Rectangle-8 {
+  width: 475.5px;
+  height: 69.2px;
+  flex-grow: 0;
+  margin: 18.1px 0.3px 18.3px 0;
+  padding: 21.3px 356.6px 23.1px 23.1px;
+  border-radius: 3px;
+  border: solid 1px #dbdbdb;
+  background-color: #fafafa;
+}
+
+.Username {
+  width: 95.8px;
+  height: 24.8px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #959595;
+}
+
+.Rectangle-8 {
+  width: 475.5px;
+  height: 69.2px;
+  flex-grow: 0;
+  margin: 18.3px 0.3px 17.3px 0;
+  padding: 21.3px 356.6px 23.1px 23.1px;
+  border-radius: 3px;
+  border: solid 1px #dbdbdb;
+  background-color: #fafafa;
+}
+
+.Password {
+  width: 95.8px;
+  height: 24.8px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #959595;
+}
+
+.Rectangle-11 {
+  width: 475.5px;
+  height: 53.2px;
+  flex-grow: 0;
+  margin: 17.3px 0 0 0.3px;
+  padding: 12.9px 204.6px 12.5px 204.5px;
+  border-radius: 4px;
+  background-color: #5cbab1;
+}
+
+.Sign-Up {
+  width: 66.4px;
+  height: 27.8px;
+  flex-grow: 0;
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}

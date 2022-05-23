@@ -40,15 +40,15 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="bg-light flex-row justify-center mb-4 mt-10">
       <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
+        <div className="card mt-4 mb-0 p-4">
+          <h4 className="card-header bg-primary text-quatrinary">Login</h4>
+          <div className="card-body bg-tertiary">
             <form onSubmit={handleFormSubmit}>
               <input
                 className="form-input"
-                placeholder="Your email"
+                placeholder="Email Address"
                 name="email"
                 type="email"
                 id="email"
@@ -57,14 +57,17 @@ const Login = (props) => {
               />
               <input
                 className="form-input"
-                placeholder="******"
+                placeholder="********"
                 name="password"
                 type="password"
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
+              <button
+                className="btn d-block w-100  bg-primary text-quatrinary"
+                type="submit"
+              >
                 Submit
               </button>
             </form>
@@ -72,6 +75,13 @@ const Login = (props) => {
             {error && <div>Login failed</div>}
           </div>
         </div>
+        <img
+          src="../assets/images/dog-1.png"
+          srcset="../assets/images/dog-1@2x.png 2x,
+        ../assets/images/dog-1@3x.png 3x"
+          className="dog-1"
+          alt="Dog holding a toy in its mouth"
+        />
       </div>
     </main>
   );

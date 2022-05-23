@@ -6,7 +6,9 @@ export const QUERY_THOUGHTS = gql`
       _id
       thoughtText
       createdAt
+      image
       username
+      image
       reactionCount
       reactions {
         _id
@@ -14,6 +16,7 @@ export const QUERY_THOUGHTS = gql`
         username
         reactionBody
       }
+      voteCount
     }
   }
 `;
@@ -25,6 +28,7 @@ export const QUERY_THOUGHT = gql`
       thoughtText
       createdAt
       username
+      image
       reactionCount
       reactions {
         _id
@@ -51,6 +55,7 @@ export const QUERY_USER = gql`
         _id
         thoughtText
         createdAt
+        image
         reactionCount
       }
     }
@@ -68,6 +73,7 @@ export const QUERY_ME = gql`
         _id
         thoughtText
         createdAt
+        image
         reactionCount
         reactions {
           _id
