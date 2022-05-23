@@ -19,7 +19,7 @@ const Profile = (props) => {
   const [removeFriend] = useMutation(REMOVE_FRIEND);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
+    variables: { username: userParam }, fetchPolicy:"network-only"
   });
 
 
