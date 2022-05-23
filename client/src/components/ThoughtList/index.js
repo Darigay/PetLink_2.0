@@ -71,10 +71,10 @@ const ThoughtList = ({ thoughts, title, username }) => {
                       Comments: {thought.reactionCount}
                     </a>
 
-
+                    <p>
                   Comments: {thought.reactionCount} || Click to{' '}
                   {thought.reactionCount ? 'see the' : 'start a'}  conversation!
-                </p>
+                </p> </div>
               </Link>
               <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
                 Paw-Points
@@ -83,8 +83,8 @@ const ThoughtList = ({ thoughts, title, username }) => {
                 Delete Thought
               </button> : ""}
               
-
-
+              
+              
               </div>
             </div>
           ))}
