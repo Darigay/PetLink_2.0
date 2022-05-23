@@ -3,8 +3,9 @@
   --secondary: #7ED9D0;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
-  --light: #e1f5f4;
+  --light: #eeeeee;
   --dark: #6c7575;
+  --darker: black;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -30,8 +31,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
-  color: var(--dark);
-  background-color: #f3fffee1;
+  color: var(--darker);
+  background-color: var(--light);
 }
 
 h1,
@@ -42,7 +43,7 @@ h5,
 h6 {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
-  margin: 5px 0;
+  margin: 5px 40px;
   line-height: 1.25;
 }
 
@@ -76,7 +77,7 @@ p {
 }
 
 a {
-  color: var(--dark);
+  color: var(--darker);
   text-decoration: none;
 }
 
@@ -112,12 +113,25 @@ nav a:hover {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
-  margin: 5px 0;
+  margin: 20px 5px;
   border-radius: var(--border-radius);
   border: none;
-  color: var(--dark);
+  color: var(--darker);
   outline: none;
   background-color: var(--tertiary);
+  transition: all 0.5s;
+}
+
+.btn1 {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 20px 5px;
+  /* border-radius: var(--border-radius);
+  border: none;
+  color: var(--darker);
+  outline: none;
+  background-color: var(--tertiary); */
   transition: all 0.5s;
 }
 
@@ -138,16 +152,26 @@ nav a:hover {
 
 /* CARDS */
 .card {
-  margin: 0 10px 20px -20px;
-  border: 3px solid var(--dark);
+  margin: 20px 10px 20px 40px;
+  /* border: 3px solid var(--dark); */
   border-radius: var(--border-radius);
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: white;
+  color: var(--darker);
+  width: 45rem;
+}
+
+.card-img {
+  margin: -18px 4px 9px -18px;
+  /* padding: 0 -1px 10px 2px; */
+  /* border: 3px solid var(--dark); */
+  /* border-radius: var(--border-radius); */
+  /* background-color: var(--light); */
+  /* color: var(--dark); */
   width: 45rem;
 }
 
 .card-header {
-  color: var(--dark);
+  color: var(--darker);
   margin: 0;
   background-color: var(--secondary);
   padding: 0.235rem;
@@ -182,7 +206,7 @@ nav a:hover {
   margin: 0.2rem 0;
   font-size: 1.2rem;
   font-family: 'Raleway', sans-serif;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--darker);
   border-radius: var(--border-radius);
 }
 
@@ -784,7 +808,7 @@ nav a:hover {
 }
 
 .text-dark {
-  color: var(--dark);
+  color: var(--darker);
 }
 
 .text-error {

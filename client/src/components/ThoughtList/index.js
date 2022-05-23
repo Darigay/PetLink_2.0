@@ -60,13 +60,13 @@ const ThoughtList = ({ thoughts, title, username }) => {
                 <Link to={`/thought/${thought._id}`}>
                   {/* add image */}
                   {/* <p>{thought.image}</p> */}
-                  <img className="card" src={thought.image} />
+                  <img className="card-img" src={thought.image} />
                   <p>{thought.thoughtText}</p>
                   {/* add back-end code for paw-points */}
 
                   <div className='card-body-text '>
                     <a className="mb-0"> Paw Points {thought.voteCount} |
-                      Comments: {thought.reactionCount}
+                      Comments {thought.reactionCount}
                     </a>
 
                   </div>
