@@ -72,13 +72,13 @@ const ThoughtForm = () => {
     const data = new FormData()
     // console.log(imageSelected);
     data.append("file", file)
-    data.append("upload_preset", "jhvoxhay")
-    data.append("cloud_name", "dqlwnmemx");
+    data.append("upload_preset", "t5nxhopv")
+    data.append("cloud_name", "divyaarigay");
     console.log(data.getAll("file"));
     console.log(data.get("upload_preset"));
 
     fetch(
-      "https://api.cloudinary.com/v1_1/dqlwnmemx/image/upload",
+      "https://api.cloudinary.com/v1_1/divyaarigay/image/upload",
       {
         method: 'POST',
         body: data,
