@@ -74,9 +74,9 @@ const Profile = (props) => {
 
   return (
     <div>
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+      <div className="flex-row justify-center mb-3">
+        <h2 className="text-secondary p-3 display-inline-block">
+          {user.username}
         </h2>
 
         {userParam && (
@@ -85,16 +85,18 @@ const Profile = (props) => {
           </button>
         )}
       </div>
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
             thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
+            title={userParam ? `${user.username}'s pets...` : 'Your pets...'}
           />
         </div>
 
         <div className="col-12 col-lg-3 mb-3">
+          {/* <h3 className='text-primary'>Friend List</h3> */}
           <FriendList
             username={user.username}
             friendCount={user.friendCount}
@@ -106,7 +108,7 @@ const Profile = (props) => {
         </div>
 
       </div>
-      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
+      
     </div>
   );
 };
