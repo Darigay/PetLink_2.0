@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_REACTION } from '../../utils/mutations';
+import { ADD_REACTION  } from '../../utils/mutations';
 
 const ReactionForm = ({ thoughtId }) => {
   const [reactionBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [addReaction, { error }] = useMutation(ADD_REACTION);
+  // const [updateThought] = useMutation(UPDATE_THOUGHT);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -33,6 +34,17 @@ const ReactionForm = ({ thoughtId }) => {
     }
   };
 
+  // const upThought = async (thoughtId) => {
+  //   try {
+  //     const { data } = await updateThought({
+  //       variables: { thoughtId , thoughtText},
+  //     });
+
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
+
   return (
     <div>
       <p
@@ -51,6 +63,9 @@ const ReactionForm = ({ thoughtId }) => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
+        {/* {username === thought.username ? <button className='btn-block btn-danger' onClick={() => upThought(thought._id, thought.thoughtText)}>
+                Update Thought
+              </button> : ""} */}
 
         <button className="btn col-12 col-md-3" type="submit">
           Submit

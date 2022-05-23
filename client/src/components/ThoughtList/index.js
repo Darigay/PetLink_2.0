@@ -8,6 +8,7 @@ import { ADD_VOTE, DELETE_THOUGHT } from '../../utils/mutations';
 const ThoughtList = ({ thoughts, title, username }) => {
   const [addVote] = useMutation(ADD_VOTE);
   const [deleteThought] = useMutation(DELETE_THOUGHT);
+  
   if (!thoughts.length) {
     return <h3>No pets Yet</h3>;
   }
@@ -32,6 +33,8 @@ const ThoughtList = ({ thoughts, title, username }) => {
       console.error(e);
     }
   };
+
+  
 
   return (
     <div>
@@ -67,6 +70,7 @@ const ThoughtList = ({ thoughts, title, username }) => {
               {username === thought.username ? <button className='btn-block btn-danger' onClick={() => delThought(thought._id)}>
                 Delete Thought
               </button> : ""}
+              
 
             </div>
           </div>
