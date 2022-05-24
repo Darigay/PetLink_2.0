@@ -48,9 +48,9 @@ const ReactionForm = ({ thoughtId }) => {
   return (
     <div>
       <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+        className={`m-0 ${characterCount === 480 || error ? 'text-error' : ''}`}
       >
-        Character Count: {characterCount}/280
+        Character Count: {characterCount}/480
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
@@ -58,7 +58,7 @@ const ReactionForm = ({ thoughtId }) => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Leave a reaction to this thought..."
+          placeholder="Post some pet-related content here"
           value={reactionBody}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
