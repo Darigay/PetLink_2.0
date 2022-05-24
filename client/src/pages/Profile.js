@@ -138,7 +138,7 @@ const Profile = (props) => {
 
 
       </div>
-      <div className="">
+      <div className="bottomBar">
         <div className="">
           <a
             href="https://utah.bestfriends.org/get-involved/donate"

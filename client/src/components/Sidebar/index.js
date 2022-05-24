@@ -20,15 +20,15 @@ const Sidebar = () => {
     const loggedIn = Auth.loggedIn();
   return (
 
-    <div class="sidenav">
+    <div className="sidenav">
      {loggedIn && userData ? (
-            <div>
+            
               <FriendList
                 username={userData.me.username}
                 friendCount={userData.me.friendCount}
                 friends={userData.me.friends}
               />
-            </div>
+          
           ) : null}
 
               <div>
@@ -38,7 +38,7 @@ const Sidebar = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img width="250px" src={charityLogo} alt="Best Friends in Utah" />
+              <img width="185px" src={charityLogo} alt="Best Friends in Utah" />
             </a>
           </div>
 

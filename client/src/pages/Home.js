@@ -55,6 +55,7 @@ const Home = () => {
                 />
               )}
             </div>
+            <div className="bottomBar">
             {loggedIn && userData ? (
               <div className="col-12 col-lg-3 mb-3">
                 <FriendList
@@ -74,6 +75,7 @@ const Home = () => {
                   <img src={charityLogo} alt="Best Friends in Utah" />
                 </a>
               </div>
+            </div>
             </div>
           </div>
         </div>
