@@ -38,26 +38,26 @@ const Home = () => {
               )}
             </div>
             <div className="bottomBar">
-            {loggedIn && userData ? (
-              <div className="col-12 col-lg-3 mb-3">
-                <FriendList
-                  username={userData.me.username}
-                  friendCount={userData.me.friendCount}
-                  friends={userData.me.friends}
-                />
+              {loggedIn && userData ? (
+                <div className="col-12 col-lg-3 mb-3">
+                  <FriendList
+                    username={userData.me.username}
+                    friendCount={userData.me.friendCount}
+                    friends={userData.me.friends}
+                  />
+                </div>
+              ) : null}
+              <div className="row justify-content-end">
+                <div className="col-12 col-lg-3 mb-3">
+                  <a
+                    href="https://utah.bestfriends.org/get-involved/donate"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src={charityLogo} alt="Best Friends in Utah" />
+                  </a>
+                </div>
               </div>
-            ) : null}
-            <div className="row justify-content-end">
-              <div className="col-12 col-lg-3 mb-3">
-                <a
-                  href="https://utah.bestfriends.org/get-involved/donate"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={charityLogo} alt="Best Friends in Utah" />
-                </a>
-              </div>
-            </div>
             </div>
           </div>
         </div>

@@ -122,6 +122,19 @@ nav a:hover {
   transition: all 0.5s;
 }
 
+.pill1 {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 15px 0;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--darker);
+  outline: none;
+  background-color: #EEF2FF;
+  transition: all 0.5s;
+}
+
 .btn1 {
   font-size: 1.3rem;
   text-decoration: none;
@@ -239,8 +252,8 @@ nav a:hover {
   left: -9999px;
 }
 
-[type='radio']:checked + label,
-[type='radio']:not(:checked) + label {
+[type='radio']:checked+label,
+[type='radio']:not(:checked)+label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -250,8 +263,8 @@ nav a:hover {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked + label:before,
-[type='radio']:not(:checked) + label:before {
+[type='radio']:checked+label:before,
+[type='radio']:not(:checked)+label:before {
   content: '';
   position: absolute;
   left: 0;
@@ -263,8 +276,8 @@ nav a:hover {
   background: #fff;
 }
 
-[type='radio']:checked + label:after,
-[type='radio']:not(:checked) + label:after {
+[type='radio']:checked+label:after,
+[type='radio']:not(:checked)+label:after {
   content: '';
   width: 12px;
   height: 12px;
@@ -277,13 +290,13 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked) + label:after {
+[type='radio']:not(:checked)+label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked + label:after {
+[type='radio']:checked+label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -1319,15 +1332,23 @@ nav a:hover {
 
 /* The sidebar menu */
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 200px;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
   left: 0;
-  background-color: none; /* none, so it's transparent */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 100px; /* so it doesn't cover the header */
+  background-color: none;
+  /* none, so it's transparent */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 100px;
+  /* so it doesn't cover the header */
 }
 
 /* The sidebar divs */
@@ -1349,7 +1370,8 @@ nav a:hover {
 
 /* Style page content */
 .main {
-  margin-left: 200px; /* Same as the width of the sidebar */
+  margin-left: 200px;
+  /* Same as the width of the sidebar */
   padding: 0px 10px;
 }
 
@@ -1357,20 +1379,19 @@ nav a:hover {
 .bottomBar {
   display: none;
 }
+
 /* On smaller screens, where height is less than 450px, the sidebar will disappear and a bottom bar with the same content will appear */
 @media screen and (max-width: 450px) {
   .sidenav {
     display: none;
   }
+
   .bottomBar {
     display: block;
   }
+
   .main {
     margin-left: 0px;
   }
- 
+
 }
-
-
-
-
