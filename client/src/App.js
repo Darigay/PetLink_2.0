@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -12,7 +11,6 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import Sidebar from './components/Sidebar';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -20,6 +18,10 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+// import { Layout, Menu } from 'antd';
+// import { Content } from 'antd/lib/layout/layout';
+import Sidebar from './components/Sidebar';
+
 
 
 const httpLink = createHttpLink({
@@ -51,9 +53,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        
         <div className="flex-column justify-flex-start min-100-vh">
+
+
           <Header />
+         
+          
           <div className="container">
+          <Sidebar />
             <Routes>
               <Route
                 path="/"
@@ -85,9 +93,13 @@ function App() {
               />
             </Routes>
           </div>
+         
+          
           <Footer />
         </div>
+  
       </Router>
+      
     </ApolloProvider>
   );
 }

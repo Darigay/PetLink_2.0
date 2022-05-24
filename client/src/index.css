@@ -97,7 +97,7 @@ nav a {
 
 nav a:hover {
   color: var(--secondary);
-  background-color: var(--dark);
+  background-color: var(--tertiary);
 }
 
 .page-title {
@@ -123,13 +123,13 @@ nav a:hover {
 
 .btn:hover,
 .pill:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--tertiary);
+  background-color: var(--primary);
 }
 
 .btn:hover a,
 .pill:hover a {
-  color: var(--secondary);
+  color: var(--tertiary);
 }
 
 .btn-inline {
@@ -1261,3 +1261,81 @@ nav a:hover {
 
 }
 
+
+/* sidebar styles */
+
+.mini-sidebar {
+  display: none;
+}
+.sidebar {
+  flex: 0.4;
+  padding: 5px;
+  box-shadow: 0 0 10px #d8d3d3;
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  left: auto;
+  top: 30px;
+  margin-top: 20px;
+  background-color: #fff;
+  margin-top: 5vh;
+}
+@media (max-width: 767px) {
+  .sidebar {
+    top: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+  .mini-sidebar {
+    display: inherit;
+    top: 30px;
+    left: 1%;
+    margin-top: 20px;
+    position: fixed;
+    height: 100%;
+    width: 30% !important;
+  }
+}
+
+.sidebar-option {
+  margin-top: 10px;
+  height: fit-content;
+  display: flex;
+  padding-bottom: 5px;
+  border: 1px solid #ccbcbc;
+  border-radius: 20px;
+  width: 80%;
+  cursor: pointer;
+  color: #1a1919;
+}
+.sidebar-active {
+  background-color: #1c065e;
+  border-radius: 20px;
+  color: #f01cf0;
+}
+.sidebar-active h2 {
+  color: #f01cf0;
+}
+.sidebar-icon {
+  margin: 0 !important;
+  color: red !important;
+  align-self: center;
+  margin-top: 10% !important;
+  font-size: medium;
+  padding: 5px;
+}
+
+.sidebar-option:hover {
+  background-color: #cfd7dd;
+  border-radius: 20px;
+  transition: color 100ms ease-out;
+}
+.sidebar-option > h2 {
+  font-size: medium;
+  font-weight: 600;
+  margin-right: 20px;
+  padding-top: 26px;
+}
