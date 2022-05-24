@@ -52,7 +52,7 @@ function App() {
       <Router>
       <Header />
       <Sidebar />
-      {/* <div className='flex-column' style={{"width": "20vw"}}><Sidebar /></div> */}
+
         <div className="main flex-column justify-flex-start min-100-vh">
           
           

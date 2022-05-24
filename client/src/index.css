@@ -1334,14 +1334,16 @@ nav a:hover {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: var(--primary);
   display: block;
 }
 
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+
+  font-weight: bolder;
+
 }
 
 /* Style page content */
@@ -1349,11 +1351,12 @@ nav a:hover {
   margin-left: 200px; /* Same as the width of the sidebar */
   padding: 0px 10px;
 }
- 
+
+/* the bottom bar is similar to the sidebar except for its placement and shows up when the sidebar disappears on smaller screens (see the media queries) */
 .bottomBar {
   display: none;
 }
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+/* On smaller screens, where height is less than 450px, the sidebar will disappear and a bottom bar with the same content will appear */
 @media screen and (max-width: 450px) {
   .sidenav {
     display: none;
@@ -1364,23 +1367,7 @@ nav a:hover {
   .main {
     margin-left: 0px;
   }
-  /* .sidenav {
-    padding-top: 15px;
-    height: 20vh;
-    width: 100vw;
-    bottom: 100px;
-    top: unset;
-    left: unset;
-    display: flex;
-    background-color: var(--dark);
-  }
-  .sidenav div {font-size: 18px;}
-  .main {
-    margin-left: 0px;
-  }
-  footer {
-    height: 100px;
-  } */
+ 
 }
 
 
