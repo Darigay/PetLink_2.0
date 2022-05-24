@@ -1,7 +1,7 @@
 :root {
-  --primary: #1B263B;
-  --secondary: #1B263B;
-  --tertiary: #778DA9;
+  --primary: #1b263b;
+  --secondary: #1b263b;
+  --tertiary: #778da9;
   --quatrinary: #cadbda;
   --light: #eeeeee;
   --dark: #6c7575;
@@ -112,7 +112,7 @@ nav a:hover {
 .pill {
   font-size: 1.3rem;
   text-decoration: none;
-  padding: .5rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   margin: 15px 0;
   border-radius: var(--border-radius);
   border: none;
@@ -137,9 +137,9 @@ nav a:hover {
 }
 
 .btn2 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-decoration: none;
-  padding: .5rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
@@ -208,7 +208,7 @@ nav a:hover {
 
 .card-body-text {
   padding: 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 /* FORM */
@@ -239,8 +239,8 @@ nav a:hover {
   left: -9999px;
 }
 
-[type='radio']:checked+label,
-[type='radio']:not(:checked)+label {
+[type='radio']:checked + label,
+[type='radio']:not(:checked) + label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -250,8 +250,8 @@ nav a:hover {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked+label:before,
-[type='radio']:not(:checked)+label:before {
+[type='radio']:checked + label:before,
+[type='radio']:not(:checked) + label:before {
   content: '';
   position: absolute;
   left: 0;
@@ -263,8 +263,8 @@ nav a:hover {
   background: #fff;
 }
 
-[type='radio']:checked+label:after,
-[type='radio']:not(:checked)+label:after {
+[type='radio']:checked + label:after,
+[type='radio']:not(:checked) + label:after {
   content: '';
   width: 12px;
   height: 12px;
@@ -277,13 +277,13 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked)+label:after {
+[type='radio']:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked+label:after {
+[type='radio']:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -1311,6 +1311,7 @@ nav a:hover {
     align-items: center;
   }
 
+
 }
 
 
@@ -1369,5 +1370,7 @@ nav a:hover {
   }
  
 }
+
+
 
 
