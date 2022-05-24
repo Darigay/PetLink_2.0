@@ -25,10 +25,10 @@ const ThoughtList = ({ thoughts, title, username }) => {
   };
 
   const delThought = async (thoughtId) => {
-    let { username } = this.username;
-    if (username) {
-      return <button>Delete Thought</button>;
-    }
+    // let { username } = this.username;
+    // if (username) {
+    //   return <button>Delete Thought</button>;
+    // }
 
     try {
       const { data } = await deleteThought({
@@ -80,17 +80,14 @@ const ThoughtList = ({ thoughts, title, username }) => {
                   Paw-Points
                 </button> */}
 
-              {username === thought.username ? (
+              {username === thought.username ? 
                 <button
                   className="btn2 btn-danger"
                   onClick={() => delThought(thought._id)}
                 >
 
                   Delete Post
-                </button>
-              ) : (
-                ''
-              )}
+                </button> : ""}
             </div>
           </div>
         ))}
