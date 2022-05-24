@@ -291,7 +291,7 @@ nav a:hover {
 
 /* LAYOUT */
 .container {
-  width: 85%;
+  width: auto;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -1310,4 +1310,67 @@ nav a:hover {
   .align-center-xl {
     align-items: center;
   }
+
+
 }
+
+
+/* sidebar styling */
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: none; /* none, so it's transparent */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 100px; /* so it doesn't cover the header */
+}
+
+/* The sidebar divs */
+.sidenav div {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--primary);
+  display: block;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+
+  font-weight: bolder;
+
+}
+
+/* Style page content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* the bottom bar is similar to the sidebar except for its placement and shows up when the sidebar disappears on smaller screens (see the media queries) */
+.bottomBar {
+  display: none;
+}
+/* On smaller screens, where height is less than 450px, the sidebar will disappear and a bottom bar with the same content will appear */
+@media screen and (max-width: 450px) {
+  .sidenav {
+    display: none;
+  }
+  .bottomBar {
+    display: block;
+  }
+  .main {
+    margin-left: 0px;
+  }
+ 
+}
+
+
+
+

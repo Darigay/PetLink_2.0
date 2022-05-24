@@ -79,11 +79,13 @@ const ThoughtList = ({ thoughts, title, username }) => {
               {/* <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
                   Paw-Points
                 </button> */}
+
               {username === thought.username ? (
                 <button
                   className="btn2 btn-danger"
                   onClick={() => delThought(thought._id)}
                 >
+
                   Delete Post
                 </button>
               ) : (
