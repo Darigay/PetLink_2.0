@@ -46,7 +46,7 @@ const ThoughtList = ({ thoughts, title, username }) => {
       {thoughts &&
         thoughts.map((thought) => (
           <div key={thought._id} className="card mb-3">
-            <p className="card-header">
+            <p className="card-header text-light">
               <Link
                 to={`/profile/${thought.username}`}
                 style={{ fontWeight: 700 }}
@@ -54,41 +54,37 @@ const ThoughtList = ({ thoughts, title, username }) => {
               >
                 {thought.username}
               </Link>{' '}
+              <br />
+              posted on {thought.createdAt}{' '}
             </p>
-            <p className="card-header">posted on {thought.createdAt}</p>
+
             <div className="card-body">
               <Link to={`/thought/${thought._id}`}>
                 {/* add image */}
                 {/* <p>{thought.image}</p> */}
-                <img className="card" src={thought.image} />
+                <img className="card-img" src={thought.image} alt="" />
                 <p>{thought.thoughtText}</p>
                 {/* add back-end code for paw-points */}
-
-                <div className="card-body-text ">
-                  <a className="mb-0">
-                    {' '}
-                    Paw Points {thought.voteCount} | Comments:{' '}
-                    {thought.reactionCount}
-                  </a>
-                  <p>
-                    Comments: {thought.reactionCount} || Click to{' '}
-                    {thought.reactionCount ? 'see the' : 'start a'}{' '}
-                    conversation!
-                  </p>{' '}
-                </div>
               </Link>
-              <button
-                className="btn-block btn-danger"
-                onClick={() => pawPoints(thought._id)}
-              >
-                Paw-Points
-              </button>
+              <div className="card-body-text ">
+                <a className="mb-0" onClick={() => pawPoints(thought._id)}>
+                  {' '}
+                  Paw Points: {thought.voteCount} |{' '}
+                  <Link to={`/thought/${thought._id}`}>
+                    <a className="mb-0">Comments: {thought.reactionCount}</a>
+                  </Link>
+                </a>
+              </div>
+
+              {/* <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
+                  Paw-Points
+                </button> */}
               {username === thought.username ? (
                 <button
-                  className="btn-block btn-danger"
+                  className="btn2 btn-danger"
                   onClick={() => delThought(thought._id)}
                 >
-                  Delete Thought
+                  Delete Post
                 </button>
               ) : (
                 ''

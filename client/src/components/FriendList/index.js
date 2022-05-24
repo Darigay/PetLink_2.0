@@ -5,7 +5,7 @@ const FriendList = ({ friendCount, username, friends }) => {
   if (!friends || !friends.length) {
     return <div>
       <h5>Pet Buddies</h5>
-      <p className="bg-secondary text-dark display-block p-3">{username}, connect with other users!</p>
+      <p className="bg-secondary text-light display-block p-3">{username}, connect with other users!</p>
 
     </div>
 
@@ -13,14 +13,16 @@ const FriendList = ({ friendCount, username, friends }) => {
 
   return (
     <div>
+      <hr></hr>
       <h5>
         {username}'s {friendCount} {friendCount === 1 ? 'Pet Buddy' : 'Pet Buddies'}
       </h5>
       {friends.map(friend => (
-        <button className="btn w-100 display-block mb-2" key={friend._id}>
+        <a className="btn1 display-block mb-2" key={friend._id}>
           <Link to={`/profile/${friend.username}`}>{friend.username}</Link>
-        </button>
+        </a>
       ))}
+      <hr></hr>
     </div>
   );
 };

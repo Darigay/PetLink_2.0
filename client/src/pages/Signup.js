@@ -38,7 +38,7 @@ const Signup = () => {
   };
 
   return (
-    <main className="bg-secondary flex-row justify-center mb-4">
+    <main className="bg-light flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card mt-4 mb-0 p-4">
           <h4 className="card-header bg-primary text-quatrinary">Sign Up</h4>
