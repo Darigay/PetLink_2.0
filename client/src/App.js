@@ -18,6 +18,7 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import Sidebar from './components/Sidebar';
 
 
 const httpLink = createHttpLink({
@@ -49,10 +50,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+      <Header />
+      <Sidebar />
+      {/* <div className='flex-column' style={{"width": "20vw"}}><Sidebar /></div> */}
+        <div className="main flex-column justify-flex-start min-100-vh">
+          
+          
           <div className="container">
-            <Routes>
+              <Routes>
               <Route
                 path="/"
                 element={<Home />}
@@ -82,6 +87,7 @@ function App() {
                 element={<NoMatch />}
               />
             </Routes>
+          
           </div>
           <Footer />
         </div>

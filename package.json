@@ -22,6 +22,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "axios": "^0.27.2",
-    "cloudinary-react": "^1.7.2"
+    "cloudinary-react": "^1.7.2",
+    "react-minimal-side-navigation": "^1.9.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
   }
 }
