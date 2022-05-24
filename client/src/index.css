@@ -118,7 +118,20 @@ nav a:hover {
   border: none;
   color: var(--darker);
   outline: none;
-  background-color: #D1D1D1;
+  background-color: var(--tertiary);
+  transition: all 0.5s;
+}
+
+.pill1 {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 15px 0;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--darker);
+  outline: none;
+  background-color: #EEF2FF;
   transition: all 0.5s;
 }
 
@@ -149,18 +162,20 @@ nav a:hover {
   transition: all 0.5s;
 }
 
-.btn:hover:hover {
+.btn:hover,
+.pill:hover {
   color: var(--light);
   background-color: var(--primary);
 }
 
-.btn2:hover:hover {
+.btn2:hover,
+.pill:hover {
   color: var(--tertiary);
   background-color: var(--primary);
 }
 
 .btn:hover a,
-:hover a {
+.pill:hover a {
   color: var(--secondary);
 }
 
