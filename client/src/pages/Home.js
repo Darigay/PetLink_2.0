@@ -18,24 +18,6 @@ const Home = () => {
 
   return (
     <main>
-      {/* <aside class="sidebar">
-        <nav class="nav">
-          <ul>
-            <li class="active">
-              <a href="#">Welcome</a>
-            </li>
-            <li>
-              <a href="#">Who We Are</a>
-            </li>
-            <li>
-              <a href="#">What We Do</a>
-            </li>
-            <li>
-              <a href="#">Get In Touch</a>
-            </li>
-          </ul>
-        </nav>
-      </aside> */}
       <section>
         <div className="container">
           <div className="flex-row justify-space-between">
