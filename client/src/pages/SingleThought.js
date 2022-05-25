@@ -1,9 +1,9 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ReactionList from '../components/ReactionList';
 import ReactionForm from '../components/ReactionForm';
- 
+
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_THOUGHT } from '../utils/queries';
@@ -16,32 +16,32 @@ const SingleThought = (props) => {
   const [user] = useState(Auth.getProfile());
 
   const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId }, fetchPolicy:"network-only"
+    variables: { id: thoughtId },
+    fetchPolicy: 'network-only',
   });
 
-  useEffect(()=>{
-    setText(data?.thought.thoughtText)
-  },[data])
+  useEffect(() => {
+    setText(data?.thought.thoughtText);
+  }, [data]);
 
   const thought = data?.thought || {};
 
   const handleChange = (event) => {
     // if (event.target.value.length <= 480) {
-      setText(event.target.value);
+    setText(event.target.value);
     //   setCharacterCount(event.target.value.length);
     // }
   };
 
   const upThought = async (thoughtId) => {
-      try {
-        const { data } = await updateThought({
-          variables: { thoughtId , thoughtText},
-        });
-        
-      } catch (e) {
-        console.error(e);
-      }
-    };
+    try {
+      const { data } = await updateThought({
+        variables: { thoughtId, thoughtText },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -52,21 +52,42 @@ const SingleThought = (props) => {
       <div className="card mb-3">
         <p className="card-header text-light">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {thought.username}
+            {thought.username} <br></br>
           </span>{' '}
           posted on {thought.createdAt}
         </p>
         <div className="card-body">
-          {user.data.username === thought.username ? <textarea
-                   value={thoughtText}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea> : <p>{thought.thoughtText}</p> }
-          
+          <img className="card-img" src={thought.image} alt="" />
+          {user.data.username === thought.username ? (
+            <textarea
+              value={thoughtText}
+              className="form-input col-12 col-md-9"
+              onChange={handleChange}
+            ></textarea>
+          ) : (
+            <p>{thought.thoughtText}</p>
+          )}
         </div>
-         {user.data.username === thought.username ? <button className='btn2 btn-danger m-3' onClick={() => upThought(thought._id, thought.thoughtText)}>
-                Edit Post
-              </button> : ""}
+
+        {user.data.username === thought.username ? (
+          <button
+            className="btn-block btn-danger"
+            onClick={() =>
+              upThought(
+                thought._id,
+                thought.thoughtText,
+                alert(
+                  'Thought successfully updated! See the updated changes on your profile!'
+                )
+              )
+            }
+          >
+            Update Thought
+          </button>
+        ) : (
+          ''
+        )}
+
       </div>
 
       {thought.reactionCount > 0 && (
