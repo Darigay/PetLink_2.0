@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import{FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
@@ -8,6 +9,7 @@ import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
+ 
 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
@@ -41,18 +43,16 @@ const ThoughtForm = () => {
     }
   };
 
-  // submit form
+  //submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (!url) {
       return;
     }
-
     try {
       await addThought({
         variables: { thoughtText: thoughtText, image: url },
       });
-
       // clear form value
       setText('');
       setCharacterCount(0);
@@ -92,6 +92,92 @@ const ThoughtForm = () => {
   };
 
 
+  // submit form
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
+   
+  //     const data = new FormData()
+  //     // console.log(imageSelected);
+  //     data.append("file", file)
+  //     data.append("upload_preset", "t5nxhopv")
+  //     data.append("cloud_name", "divyaarigay");
+  //     console.log(data.getAll("file"));
+  //     console.log(data.get("upload_preset"));
+  
+  //     fetch(
+  //       "https://api.cloudinary.com/v1_1/divyaarigay/image/upload",
+  //       {
+  //         method: 'POST',
+  //         body: data,
+  //       }).then((response) => {
+  //         return response.json(
+  
+  //         )
+  //       }).then((data) => {
+  //         try {
+  //           addThought({
+  //             variables: { thoughtText: thoughtText, image: data.url },
+  //           });
+      
+  //           // clear form value
+  //           setText('');
+  //           setCharacterCount(0);
+  //           setUrl('');
+  //         } catch (e) {
+  //           console.error(e);
+  //         }
+  //         console.log(data);
+  //       })
+  //       .catch(err => console.log(err))
+  //   };
+  //   // if (!url) {
+  //   //   return;
+  //   // }
+
+  //   // try {
+  //   //   await addThought({
+  //   //     variables: { thoughtText: thoughtText, image: url },
+  //   //   });
+
+  //   //   // clear form value
+  //   //   setText('');
+  //   //   setCharacterCount(0);
+  //   //   setUrl('');
+  //   // } catch (e) {
+  //   //   console.error(e);
+  //   // }
+  // // };
+
+  // // Cloudinary
+  // // const [file, setFile] = useState("");
+  // const [url, setUrl] = useState("");
+
+  // const uploadImage = () => {
+  //   const data = new FormData()
+  //   // console.log(imageSelected);
+  //   data.append("file", file)
+  //   data.append("upload_preset", "t5nxhopv")
+  //   data.append("cloud_name", "divyaarigay");
+  //   console.log(data.getAll("file"));
+  //   console.log(data.get("upload_preset"));
+
+  //   fetch(
+  //     "https://api.cloudinary.com/v1_1/divyaarigay/image/upload",
+  //     {
+  //       method: 'POST',
+  //       body: data,
+  //     }).then((response) => {
+  //       return response.json(
+
+  //       )
+  //     }).then((data) => {
+  //       setUrl(data.url)
+  //       console.log(data);
+  //     })
+  //     .catch(err => console.log(err))
+  // };
+
+
   return (
     <div>
       <p
@@ -114,7 +200,8 @@ const ThoughtForm = () => {
         {/* <img src={url}
         /> */}
         <button className="btn col-12 col-md-3" type="submit" onClick={uploadImage}>
-          Create
+          Create {''}
+          <FontAwesomeIcon icon={['fas','circle-plus']}></FontAwesomeIcon>
         </button>
 
         <input
