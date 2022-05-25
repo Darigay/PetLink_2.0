@@ -77,32 +77,29 @@ const SingleThought = (props) => {
             <p>{thought.thoughtText}</p>
           )}
         </div>
-        {user.data.username === thought.username ? (
-          <button
-            className="btn-block btn-danger"
-            onClick={() =>
-              upThought(
-                thought._id,
-                thought.thoughtText,
-                alert(
-                  'Thought successfully updated! See your changes on your profile!'
-                )
-              )
-            }
-          >
-            Update Thought <FontAwesomeIcon icon={['fas','pencil']}></FontAwesomeIcon>
-          </button>
-        ) : (
-          ''
-        )}
+
+
+         {user.data.username === thought.username ? <button className='btn2 btn-danger' 
+             onClick={() => upThought(thought._id, thought.thoughtText, alert(
+                  'Thought successfully updated! See the updated changes on your profile!'
+                ))}>
+                Update Thought <FontAwesomeIcon icon={['fas','pencil']}></FontAwesomeIcon>
+              </button> : ""}
+
+
+  
+
       </div>
 
       {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions}  />
       )}
+      <div className='mb-3'>
 
       {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      </div>
     </div>
+    
   );
 };
 

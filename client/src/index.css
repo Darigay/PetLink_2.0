@@ -248,15 +248,15 @@ nav a:hover {
   border-radius: var(--border-radius);
 }
 
-.custom-file-input{
+/* .custom-file-input{
 	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
-}
-.custom-file-input + label {
+} */
+.custom-file-input::file-selector-button {
   font-size: 0.9rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
@@ -269,7 +269,7 @@ nav a:hover {
   transition: all 0.5s;
 }
 
-.custom-file-input + label:hover {
+.custom-file-input::file-selector-button:hover {
   color: var(--tertiary);
   background-color: var(--primary)
 }
