@@ -118,10 +118,11 @@ const ThoughtForm = () => {
         </button>
 
         <input
-          type="file"
+          type="file" 
+          className='custom-file-input'
           onChange={(event) => setFile(event.target.files[0])
           }
-        />
+        /> <label for="file">Choose a file</label>
       </form>
     </div>
   );

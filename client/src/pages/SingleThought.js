@@ -68,6 +68,7 @@ const SingleThought = (props) => {
             <p>{thought.thoughtText}</p>
           )}
         </div>
+
         {user.data.username === thought.username ? (
           <button
             className="btn-block btn-danger"
@@ -86,6 +87,7 @@ const SingleThought = (props) => {
         ) : (
           ''
         )}
+
       </div>
 
       {thought.reactionCount > 0 && (
