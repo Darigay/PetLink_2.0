@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import{FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { Navigate, useParams } from 'react-router-dom';
 
 import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
-import charityLogo from "../assets/images/best_friends_utah.png";
+import charityLogo from '../assets/images/best_friends_utah.png';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_THOUGHTS } from '../utils/queries';
 import { ADD_FRIEND, REMOVE_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 // import jwtDecode from 'jwt-decode';
@@ -18,23 +19,29 @@ const Profile = (props) => {
   const [addFriend] = useMutation(ADD_FRIEND);
   const [removeFriend] = useMutation(REMOVE_FRIEND);
 
+  const [thoughts, setThoughts] = useState([]);
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }, fetchPolicy:"network-only"
   });
 
 
   // logic to render add/remove friend buttons based on isFriend 
-  const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME);
+   const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME);
+
+
   // console.log(dataMe);
-  const me = dataMe?.me || {};
+    const me = dataMe?.me || {};
   const user = data?.me || data?.user || {};
   // console.log(me);
   // console.log(userParam);
 
-  // isFriend searches the friends array of the logged in user (me) to find the username of the currently displayed profile to determine if they are already friends or not 
-  const isFriend = me?.friends?.find(friend => friend["username"] === userParam);
-  // console.log(isFriend);
 
+  // isFriend searches the friends array of the logged in user (me) to find the username of the currently displayed profile to determine if they are already friends or not
+  const isFriend = me?.friends?.find(
+    (friend) => friend['username'] === userParam
+  );
+
+  // console.log(isFriend);
 
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -63,7 +70,7 @@ const Profile = (props) => {
     } catch (e) {
       console.error(e);
     }
-    console.log(data)
+    console.log(data);
   };
 
   // this is called when a user clicks the 'remove friend' button
@@ -76,14 +83,12 @@ const Profile = (props) => {
 
     try {
       const { data } = await removeFriend({
-        variables: { id: user._id }
+        variables: { id: user._id },
       });
-
     } catch (err) {
       console.error(err);
     }
   };
-
 
   return (
     <div>
@@ -99,15 +104,15 @@ const Profile = (props) => {
           <h2 className="text-secondary display-inline-block justify-flex-start">
             {user.username}
           </h2>
-          <div className='display-inline-block justify-flex-end'>
+          <div className="display-inline-block justify-flex-end">
             {!isFriend && (
               <button className="btn ml-auto" onClick={handleClick}>
-                Add Friend
+                Add Friend <FontAwesomeIcon icon={['fas','user-check']}></FontAwesomeIcon>
               </button>
             )}
             {isFriend && (
               <button className="btn ml-auto" onClick={handleDeleteFriend}>
-                Remove Friend
+                Remove Friend <FontAwesomeIcon icon={['fas','user-xmark']}></FontAwesomeIcon>
               </button>
             )}
           </div>
@@ -119,6 +124,7 @@ const Profile = (props) => {
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
+            setThoughts = {setThoughts}
             thoughts={user.thoughts}
             title={userParam ? `${user.username}'s pets...` : 'Your pets...'}
           />
@@ -133,16 +139,14 @@ const Profile = (props) => {
             friendCount={user.friendCount}
             friends={user.friends}
           />
-
         </div>
-
-
       </div>
-      <div className="">
+      <div className="bottomBar">
         <div className="">
           <a
             href="https://utah.bestfriends.org/get-involved/donate"
-            target="_blank" rel="noreferrer"
+            target="_blank"
+            rel="noreferrer"
           >
             <img src={charityLogo} alt="Best Friends in Utah" />
           </a>
