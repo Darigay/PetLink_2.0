@@ -76,7 +76,7 @@ const SingleThought = (props) => {
                 thought._id,
                 thought.thoughtText,
                 alert(
-                  'Thought successfully updated! See the updated changes on your profile!'
+                  'Thought successfully updated! See your changes on your profile!'
                 )
               )
             }
