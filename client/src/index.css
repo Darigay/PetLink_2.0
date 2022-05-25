@@ -99,6 +99,7 @@ nav a {
 nav a:hover {
   color: var(--secondary);
   background-color: var(--tertiary);
+  border-radius: var(--border-radius);
 }
 
 .page-title {
@@ -1327,7 +1328,7 @@ nav a:hover {
   left: 0;
   background-color: none; /* none, so it's transparent */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 100px; /* so it doesn't cover the header */
+  padding-top: 125px; /* so it doesn't cover the header */
 }
 
 /* The sidebar divs */

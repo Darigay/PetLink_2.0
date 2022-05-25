@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from "../../assets/images/Petlink_W.png";
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -12,8 +12,9 @@ const Header = () => {
   return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center text-light">
-        <Link to="/">
-          <h1>PetLink 2.0</h1>
+        <Link to="/"><h1>
+        <img src={logo} alt="Petlink logo"/> 
+        </h1>
         </Link>
 
         <nav className="text-center">
