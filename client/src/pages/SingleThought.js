@@ -81,9 +81,9 @@ const SingleThought = (props) => {
 
          {user.data.username === thought.username ? <button className='btn2 btn-danger' 
              onClick={() => upThought(thought._id, thought.thoughtText, alert(
-                  'Thought successfully updated! See the updated changes on your profile!'
+                  'Post successfully updated! See the updated changes on your profile!'
                 ))}>
-                Update Thought <FontAwesomeIcon icon={['fas','pencil']}></FontAwesomeIcon>
+                Update Post <FontAwesomeIcon icon={['fas','pencil']}></FontAwesomeIcon>
               </button> : ""}
 
 
