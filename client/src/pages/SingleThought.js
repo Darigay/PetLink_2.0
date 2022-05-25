@@ -71,7 +71,7 @@ const SingleThought = (props) => {
 
         {user.data.username === thought.username ? (
           <button
-            className="btn-block btn-danger"
+            className="btn2 btn-danger m-3"
             onClick={() =>
               upThought(
                 thought._id,
@@ -93,9 +93,12 @@ const SingleThought = (props) => {
       {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions} />
       )}
+      <div className='mb-3'>
 
       {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      </div>
     </div>
+    
   );
 };
 
