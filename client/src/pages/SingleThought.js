@@ -16,12 +16,13 @@ const SingleThought = (props) => {
   const [user] = useState(Auth.getProfile());
 
   const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId }, fetchPolicy: "network-only"
+    variables: { id: thoughtId },
+    fetchPolicy: 'network-only',
   });
 
   useEffect(() => {
-    setText(data?.thought.thoughtText)
-  }, [data])
+    setText(data?.thought.thoughtText);
+  }, [data]);
 
   const thought = data?.thought || {};
 
@@ -37,7 +38,6 @@ const SingleThought = (props) => {
       const { data } = await updateThought({
         variables: { thoughtId, thoughtText },
       });
-
     } catch (e) {
       console.error(e);
     }
@@ -58,16 +58,34 @@ const SingleThought = (props) => {
         </p>
         <div className="card-body">
           <img className="card-img" src={thought.image} alt="" />
-          {user.data.username === thought.username ? <textarea
-            value={thoughtText}
-            className="form-input col-12 col-md-9"
-            onChange={handleChange}
-          ></textarea> : <p>{thought.thoughtText}</p>}
-
+          {user.data.username === thought.username ? (
+            <textarea
+              value={thoughtText}
+              className="form-input col-12 col-md-9"
+              onChange={handleChange}
+            ></textarea>
+          ) : (
+            <p>{thought.thoughtText}</p>
+          )}
         </div>
-        {user.data.username === thought.username ? <button className='btn-block btn-danger' onClick={() => upThought(thought._id, thought.thoughtText)}>
-          Update Thought
-        </button> : ""}
+        {user.data.username === thought.username ? (
+          <button
+            className="btn-block btn-danger"
+            onClick={() =>
+              upThought(
+                thought._id,
+                thought.thoughtText,
+                alert(
+                  'Thought successfully updated! See the updated changes on your profile!'
+                )
+              )
+            }
+          >
+            Update Thought
+          </button>
+        ) : (
+          ''
+        )}
       </div>
 
       {thought.reactionCount > 0 && (
