@@ -1,6 +1,6 @@
 ## PetLink
 ## Description
-**PetLink** is a web app that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
+**PetLink 2.0** is a web app that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
 ## Process - Technologies Used
 Cloudinary
 Node.js
@@ -26,10 +26,13 @@ CSS
         "cloudinary-react": "^1.7.2"
 
   ## Usage
-
+A Facebook/Instagram style Social Media to share glamour shots, information, ask questions, schedule meet ups/play dates and of course make friends! 
 
 ## Screen Shots
 
+## User Story 
+
+As pet lovers of all kinds we wanted to make a place to share the glamour shots of our fur babies, ask questions with no judgement and meet other like minded animal lovers! PetLink is a safe space for anyone who loves animals and wants to share that amazing connection with others. 
 
 
 
