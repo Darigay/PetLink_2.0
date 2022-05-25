@@ -150,6 +150,7 @@ nav a:hover {
   transition: all 0.5s;
 }
 
+
 .btn:hover,
 .pill:hover {
   color: var(--light);
@@ -234,6 +235,32 @@ nav a:hover {
   border-radius: var(--border-radius);
 }
 
+.custom-file-input{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.custom-file-input + label {
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--darker);
+  outline: none;
+  background-color: var(--tertiary);
+  transition: all 0.5s;
+}
+
+.custom-file-input + label:hover {
+  color: var(--tertiary);
+  background-color: var(--primary)
+}
+
 [type='radio']:checked,
 [type='radio']:not(:checked) {
   position: absolute;
@@ -292,6 +319,7 @@ nav a:hover {
 
 /* LAYOUT */
 .container {
+  display: flex;
   width: auto;
   max-width: 1200px;
   margin-left: auto;
@@ -1328,7 +1356,7 @@ nav a:hover {
   left: 0;
   background-color: none; /* none, so it's transparent */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 125px; /* so it doesn't cover the header */
+  padding-top: 150px; /* so it doesn't cover the header */
 }
 
 /* The sidebar divs */
@@ -1367,7 +1395,12 @@ nav a:hover {
     display: block;
   }
   .main {
-    margin-left: 0px;
+    margin: auto;
+    display: flex;
+  }
+  .container {
+    display:flex;
+    flex-flow: row wrap;
   }
  
 }

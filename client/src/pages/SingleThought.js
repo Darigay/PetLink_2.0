@@ -50,7 +50,7 @@ const SingleThought = (props) => {
   return (
     <div>
       <div className="card mb-3">
-        <p className="card-header">
+        <p className="card-header text-light">
           <span style={{ fontWeight: 700 }} className="text-light">
             {thought.username}
           </span>{' '}
@@ -64,8 +64,8 @@ const SingleThought = (props) => {
         ></textarea> : <p>{thought.thoughtText}</p> }
           
         </div>
-         {user.data.username === thought.username ? <button className='btn-block btn-danger' onClick={() => upThought(thought._id, thought.thoughtText)}>
-                Update Thought
+         {user.data.username === thought.username ? <button className='btn2 btn-danger m-3' onClick={() => upThought(thought._id, thought.thoughtText)}>
+                Edit Post
               </button> : ""}
       </div>
 
