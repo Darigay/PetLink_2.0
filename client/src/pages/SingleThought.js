@@ -78,6 +78,7 @@ const SingleThought = (props) => {
           )}
         </div>
 
+
          {user.data.username === thought.username ? <button className='btn2 btn-danger' 
              onClick={() => upThought(thought._id, thought.thoughtText, alert(
                   'Thought successfully updated! See the updated changes on your profile!'
@@ -87,6 +88,7 @@ const SingleThought = (props) => {
 
 
   
+
       </div>
 
       {thought.reactionCount > 0 && (
