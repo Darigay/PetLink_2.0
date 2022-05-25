@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import{FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { Navigate, useParams } from 'react-router-dom';
 
 import ThoughtForm from '../components/ThoughtForm';
@@ -18,27 +19,28 @@ const Profile = (props) => {
   const [addFriend] = useMutation(ADD_FRIEND);
   const [removeFriend] = useMutation(REMOVE_FRIEND);
 
-  const { loading, data } = useQuery(
-    userParam ? QUERY_USER : QUERY_ME,
-    {
-      variables: { username: userParam },
-      fetchPolicy: 'network-only',
-    },
-    QUERY_THOUGHTS
-  );
+  const [thoughts, setThoughts] = useState([]);
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam }, fetchPolicy:"network-only"
+  });
 
-  // logic to render add/remove friend buttons based on isFriend
-  const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME);
+
+  // logic to render add/remove friend buttons based on isFriend 
+   const { loading: loadingMe, data: dataMe } = useQuery(QUERY_ME);
+
+
   // console.log(dataMe);
-  const me = dataMe?.me || {};
+    const me = dataMe?.me || {};
   const user = data?.me || data?.user || {};
   // console.log(me);
   // console.log(userParam);
+
 
   // isFriend searches the friends array of the logged in user (me) to find the username of the currently displayed profile to determine if they are already friends or not
   const isFriend = me?.friends?.find(
     (friend) => friend['username'] === userParam
   );
+
   // console.log(isFriend);
 
   // navigate to personal profile page if username is yours
@@ -105,12 +107,12 @@ const Profile = (props) => {
           <div className="display-inline-block justify-flex-end">
             {!isFriend && (
               <button className="btn ml-auto" onClick={handleClick}>
-                Add Friend
+                Add Friend <FontAwesomeIcon icon={['fas','user-check']}></FontAwesomeIcon>
               </button>
             )}
             {isFriend && (
               <button className="btn ml-auto" onClick={handleDeleteFriend}>
-                Remove Friend
+                Remove Friend <FontAwesomeIcon icon={['fas','user-xmark']}></FontAwesomeIcon>
               </button>
             )}
           </div>
@@ -122,6 +124,7 @@ const Profile = (props) => {
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
+            setThoughts = {setThoughts}
             thoughts={user.thoughts}
             title={userParam ? `${user.username}'s pets...` : 'Your pets...'}
           />
