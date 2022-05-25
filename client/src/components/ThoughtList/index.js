@@ -70,9 +70,11 @@ const ThoughtList = ({ thoughts, title, username }) => {
               <div className="card-body-text ">
                 <a className="mb-0" onClick={() => pawPoints(thought._id)}>
                   {' '}
+
                   <FontAwesomeIcon icon = {['fas','paw']}></FontAwesomeIcon> Paw Points: {thought.voteCount} |{' '}
                   <Link to={`/thought/${thought._id}`}>
                     <a className="mb-0"><FontAwesomeIcon icon={['fas','comment']}></FontAwesomeIcon> Comments: {thought.reactionCount}</a>
+
                   </Link>
                 </a>
               </div>
@@ -80,16 +82,20 @@ const ThoughtList = ({ thoughts, title, username }) => {
               {/* <button className='btn-block btn-danger' onClick={() => pawPoints(thought._id)}>
                   Paw-Points
                 </button> */}
+
                
               {username === thought.username ? 
+
                 <button
                   className="btn2 btn-danger"
                   onClick={() => delThought(thought._id)}
                 >
+
                   Delete Post <FontAwesomeIcon icon={['fas','trash']}></FontAwesomeIcon>
                 </button> : ""}
 
                 
+
             </div>
           </div>
         ))}

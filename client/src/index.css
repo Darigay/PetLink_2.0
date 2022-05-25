@@ -1,7 +1,7 @@
 :root {
-  --primary: #1B263B;
-  --secondary: #1B263B;
-  --tertiary: #778DA9;
+  --primary: #1b263b;
+  --secondary: #1b263b;
+  --tertiary: #778da9;
   --quatrinary: #cadbda;
   --light: #eeeeee;
   --dark: #6c7575;
@@ -99,6 +99,7 @@ nav a {
 nav a:hover {
   color: var(--secondary);
   background-color: var(--tertiary);
+  border-radius: var(--border-radius);
 }
 
 .page-title {
@@ -112,13 +113,26 @@ nav a:hover {
 .pill {
   font-size: 1.3rem;
   text-decoration: none;
-  padding: .5rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   margin: 15px 0;
   border-radius: var(--border-radius);
   border: none;
   color: var(--darker);
   outline: none;
   background-color: var(--tertiary);
+  transition: all 0.5s;
+}
+
+.pill1 {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 15px 0;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--darker);
+  outline: none;
+  background-color: #EEF2FF;
   transition: all 0.5s;
 }
 
@@ -137,9 +151,9 @@ nav a:hover {
 }
 
 .btn2 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-decoration: none;
-  padding: .5rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
@@ -148,6 +162,7 @@ nav a:hover {
   background-color: var(--tertiary);
   transition: all 0.5s;
 }
+
 
 .btn:hover,
 .pill:hover {
@@ -208,7 +223,7 @@ nav a:hover {
 
 .card-body-text {
   padding: 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 /* FORM */
@@ -231,6 +246,32 @@ nav a:hover {
   font-family: 'Raleway', sans-serif;
   border: 2px solid var(--darker);
   border-radius: var(--border-radius);
+}
+
+.custom-file-input{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.custom-file-input + label {
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--darker);
+  outline: none;
+  background-color: var(--tertiary);
+  transition: all 0.5s;
+}
+
+.custom-file-input + label:hover {
+  color: var(--tertiary);
+  background-color: var(--primary)
 }
 
 [type='radio']:checked,
@@ -291,7 +332,8 @@ nav a:hover {
 
 /* LAYOUT */
 .container {
-  width: 85%;
+  display: flex;
+  width: auto;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -1309,6 +1351,80 @@ nav a:hover {
 
   .align-center-xl {
     align-items: center;
+  }
+
+
+}
+
+
+/* sidebar styling */
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 200px;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+
+  background-color: none; /* none, so it's transparent */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 150px; /* so it doesn't cover the header */
+
+}
+
+/* The sidebar divs */
+.sidenav div {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--primary);
+  display: block;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+
+  font-weight: bolder;
+
+}
+
+/* Style page content */
+.main {
+  margin-left: 200px;
+  /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* the bottom bar is similar to the sidebar except for its placement and shows up when the sidebar disappears on smaller screens (see the media queries) */
+.bottomBar {
+  display: none;
+}
+
+/* On smaller screens, where height is less than 450px, the sidebar will disappear and a bottom bar with the same content will appear */
+@media screen and (max-width: 450px) {
+  .sidenav {
+    display: none;
+  }
+
+  .bottomBar {
+    display: block;
+  }
+
+  .main {
+    margin: auto;
+    display: flex;
+  }
+  .container {
+    display:flex;
+    flex-flow: row wrap;
   }
 
 }
