@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState , useEffect} from 'react';
+import{FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import { useParams } from 'react-router-dom';
 
 import ReactionList from '../components/ReactionList';
@@ -14,15 +17,17 @@ const SingleThought = (props) => {
   const [updateThought] = useMutation(UPDATE_THOUGHT);
   const [thoughtText, setText] = useState('');
   const [user] = useState(Auth.getProfile());
-
+  
   const { loading, data } = useQuery(QUERY_THOUGHT, {
     variables: { id: thoughtId },
     fetchPolicy: 'network-only',
   });
 
+
   useEffect(() => {
     setText(data?.thought.thoughtText);
   }, [data]);
+
 
   const thought = data?.thought || {};
 
@@ -34,6 +39,9 @@ const SingleThought = (props) => {
   };
 
   const upThought = async (thoughtId) => {
+
+    
+
     try {
       const { data } = await updateThought({
         variables: { thoughtId, thoughtText },
@@ -42,6 +50,7 @@ const SingleThought = (props) => {
       console.error(e);
     }
   };
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -81,7 +90,7 @@ const SingleThought = (props) => {
               )
             }
           >
-            Update Thought
+            Update Thought <FontAwesomeIcon icon={['fas','pencil']}></FontAwesomeIcon>
           </button>
         ) : (
           ''
@@ -89,7 +98,7 @@ const SingleThought = (props) => {
       </div>
 
       {thought.reactionCount > 0 && (
-        <ReactionList reactions={thought.reactions} />
+        <ReactionList reactions={thought.reactions}  />
       )}
 
       {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
