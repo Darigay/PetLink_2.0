@@ -3,15 +3,17 @@
 **PetLink 2.0** is a web app that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
 ## Process - Technologies Used
 Cloudinary
+React 
 Node.js
 Express.js
-Express-handlebars
-Express-session
-MySQL
-Sequelize
+MongoDB and Mongoose ODM
+GraphQL
+JWT
 JavaScript
+React-Bootstrap
 HTML 
 CSS
+
 
 ## Process - Dependencies List	
 "devDependencies": {
