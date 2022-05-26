@@ -1,6 +1,7 @@
 ## PetLink
 ## Description
 **PetLink 2.0** is a full stack MERN application that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
+We expanded this MERN application from another project that was done- You can view petLink 1.0 here: https://gentle-tundra-78964.herokuapp.com/ 
 ## Process - Technologies Used
 Cloudinary
 React 
@@ -54,7 +55,7 @@ As pet lovers of all kinds we wanted to make a place to share the glamour shots 
 
 ## Links!
 Deployed Application:
-https://gentle-tundra-78964.herokuapp.com/ 
+https://serene-wildwood-60342.herokuapp.com/
 
 GitHub Repository: 
 https://github.com/Darigay/PetLink_2.0
