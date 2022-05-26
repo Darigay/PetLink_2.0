@@ -1,6 +1,6 @@
 ## PetLink
 ## Description
-**PetLink 2.0** is a web app that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
+**PetLink 2.0** is a full stack MERN application that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
 ## Process - Technologies Used
 Cloudinary
 React 
@@ -16,21 +16,18 @@ CSS
 
 
 ## Process - Dependencies List	
-"devDependencies": {
-   "concurrently": "^5.1.0"
-  },
- "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^6.1.1",
-        "@fortawesome/free-regular-svg-icons": "^6.1.1",
-        "@fortawesome/free-solid-svg-icons": "^6.1.1",
-        "@fortawesome/react-fontawesome": "^0.1.18",
-        "axios": "^0.27.2",
-        "cloudinary-react": "^1.7.2"
+
+devDependencies:  
+"concurrently": ^5.1.0", "nodemon": "^2.0.3"
+dependencies: 
+"@fortawesome/fontawesome-svg-core": "^6.1.1", "@fortawesome/free-regular-svg-icons": "^6.1.1", "@fortawesome/free-solid-svg-icons": "^6.1.1", "@fortawesome/react-fontawesome": "^0.1.18", "axios": "^0.27.2", "cloudinary-react": "^1.7.2", "react-minimal-side-navigation": "^1.9.2", "react-router": "^5.2.0",  "react-router-dom": "^5.2.0", "@apollo/client": "^3.3.16", "graphql": "^15.5.0", "jwt-decode": "^3.1.2", "react": "^17.0.2", "react-dom": "^17.0.2",  "react-scripts": "4.0.3",  "web-vitals": "^1.0.1", "apollo-server-express": "^3.7.0",  "bcrypt": "^4.0.1", "express": "^4.17.2", "faker": "^4.1.0", "graphql": "^16.5.0", "jsonwebtoken": "^8.5.1", "mongoose": "^6.1.6"
+
 
   ## Usage
 A Facebook/Instagram style Social Media to share glamour shots, information, ask questions, schedule meet ups/play dates and of course make friends! 
 
 ## Screen Shots
+![Petlink2-WebsiteHomePage](https://user-images.githubusercontent.com/94805480/170392829-9bce454e-80fa-4234-9a41-13e9fef9542c.png)
 
 ## User Story 
 
