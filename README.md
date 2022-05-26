@@ -29,6 +29,23 @@ A Facebook/Instagram style Social Media to share glamour shots, information, ask
 ## Screen Shots
 ![Petlink2-WebsiteHomePage](https://user-images.githubusercontent.com/94805480/170392829-9bce454e-80fa-4234-9a41-13e9fef9542c.png)
 
+![Petlink2-LoginPage](https://user-images.githubusercontent.com/94805480/170392933-51b2fa99-35b9-4ea6-b124-a8ca21866563.png)
+
+![Petlink2-CommentPost](https://user-images.githubusercontent.com/94805480/170392993-dbaf780e-1e2a-4735-b844-dfe5b3b68aae.png)
+
+![Petlink2-EditPost](https://user-images.githubusercontent.com/94805480/170393090-3335d06b-fb1b-4971-a327-5c17eb8d4dc0.png)
+
+![Petlink2-HomePage (1)](https://user-images.githubusercontent.com/94805480/170393532-f84d8bb9-b3ec-4d64-bcbf-77819e5a1bbb.png)
+
+
+![Petlink2-FriendsPage](https://user-images.githubusercontent.com/94805480/170393626-9d228494-0adc-48bf-8e03-1418748c1e77.png)
+
+
+![Petlink2-ADDFriendsPage](https://user-images.githubusercontent.com/94805480/170393975-477b0759-b43e-4d3b-ad6f-8b5c8ae28b80.png)
+
+
+
+
 ## User Story 
 
 As pet lovers of all kinds we wanted to make a place to share the glamour shots of our fur babies, ask questions with no judgement and meet other like minded animal lovers! PetLink is a safe space for anyone who loves animals and wants to share that amazing connection with others. 
